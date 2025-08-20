@@ -141,7 +141,13 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { month: "May", sales: 800, revenue: 400000 },
         { month: "Jun", sales: 850, revenue: 500000 },
       ],
-      salesByRegion: [],
+      salesByRegion: [
+        { region: "Borivali", sales: 150000 },
+        { region: "Andheri", sales: 120000 },
+        { region: "Dadar", sales: 100000 },
+        { region: "Thane", sales: 80000 },
+        { region: "Colaba", sales: 50000 },
+      ],
     },
     fashion: {
       totalRevenue: 450000,
@@ -160,7 +166,13 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { month: "May", sales: 700, revenue: 400000 },
         { month: "Jun", sales: 750, revenue: 450000 },
       ],
-      salesByRegion: [],
+      salesByRegion: [
+        { region: "Borivali", sales: 120000 },
+        { region: "Andheri", sales: 100000 },
+        { region: "Dadar", sales: 80000 },
+        { region: "Thane", sales: 80000 },
+        { region: "Colaba", sales: 70000 },
+      ],
     },
     "home-goods": {
         totalRevenue: 300000,
@@ -179,7 +191,13 @@ const allData: Record<string, Record<string, DashboardData>> = {
             { month: "May", sales: 400, revenue: 250000 },
             { month: "Jun", sales: 500, revenue: 300000 },
         ],
-        salesByRegion: [],
+        salesByRegion: [
+          { region: "Borivali", sales: 80000 },
+          { region: "Andheri", sales: 80000 },
+          { region: "Dadar", sales: 70000 },
+          { region: "Thane", sales: 40000 },
+          { region: "Colaba", sales: 30000 },
+      ],
     }
   },
   delhi: {
@@ -213,7 +231,31 @@ const allData: Record<string, Record<string, DashboardData>> = {
           { area: "Nehru Place", sales: 150000 },
       ]
     },
-    // Data for categories in Delhi can be added here
+    electronics: {
+      totalRevenue: 400000,
+      totalRevenueChange: 25.1,
+      conversionRate: 3.8,
+      conversionRateChange: 2.5,
+      activeBuyers: 300,
+      activeBuyersChange: 200.1,
+      newSellers: 1500,
+      newSellersChange: 24.3,
+      salesOverTime: [
+        { month: "Jan", sales: 500, revenue: 200000 },
+        { month: "Feb", sales: 550, revenue: 240000 },
+        { month: "Mar", sales: 600, revenue: 280000 },
+        { month: "Apr", sales: 650, revenue: 320000 },
+        { month: "May", sales: 700, revenue: 360000 },
+        { month: "Jun", sales: 750, revenue: 400000 },
+      ],
+      salesByRegion: [
+        { region: "Nehru Place", sales: 100000 },
+        { region: "Karol Bagh", sales: 90000 },
+        { region: "Chandni Chowk", sales: 80000 },
+        { region: "Connaught Place", sales: 70000 },
+        { region: "Lajpat Nagar", sales: 60000 },
+      ],
+    },
   },
   bangalore: {
     "all-categories": {
@@ -246,7 +288,31 @@ const allData: Record<string, Record<string, DashboardData>> = {
           { area: "HSR Layout", sales: 100000 },
       ]
     },
-    // Data for categories in Bangalore can be added here
+     electronics: {
+      totalRevenue: 350000,
+      totalRevenueChange: 21.3,
+      conversionRate: 4.8,
+      conversionRateChange: 3.1,
+      activeBuyers: 280,
+      activeBuyersChange: 180.2,
+      newSellers: 1300,
+      newSellersChange: 20.1,
+      salesOverTime: [
+        { month: "Jan", sales: 400, revenue: 150000 },
+        { month: "Feb", sales: 450, revenue: 180000 },
+        { month: "Mar", sales: 500, revenue: 220000 },
+        { month: "Apr", sales: 550, revenue: 260000 },
+        { month: "May", sales: 600, revenue: 300000 },
+        { month: "Jun", sales: 650, revenue: 350000 },
+      ],
+      salesByRegion: [
+        { region: "Koramangala", sales: 100000 },
+        { region: "Indiranagar", sales: 80000 },
+        { region: "Whitefield", sales: 60000 },
+        { region: "Jayanagar", sales: 60000 },
+        { region: "HSR Layout", sales: 50000 },
+      ],
+    },
   },
   chennai: {
     "all-categories": {
@@ -279,7 +345,31 @@ const allData: Record<string, Record<string, DashboardData>> = {
           { area: "Mylapore", sales: 50000 },
       ]
     },
-    // Data for categories in Chennai can be added here
+    electronics: {
+      totalRevenue: 180000,
+      totalRevenueChange: 16.5,
+      conversionRate: 3.2,
+      conversionRateChange: 2.1,
+      activeBuyers: 120,
+      activeBuyersChange: 140.7,
+      newSellers: 700,
+      newSellersChange: 18.2,
+      salesOverTime: [
+        { month: "Jan", sales: 250, revenue: 80000 },
+        { month: "Feb", sales: 280, revenue: 100000 },
+        { month: "Mar", sales: 310, revenue: 120000 },
+        { month: "Apr", sales: 340, revenue: 140000 },
+        { month: "May", sales: 370, revenue: 160000 },
+        { month: "Jun", sales: 400, revenue: 180000 },
+      ],
+      salesByRegion: [
+        { region: "T. Nagar", sales: 60000 },
+        { region: "Adyar", sales: 40000 },
+        { region: "Velachery", sales: 30000 },
+        { region: "Anna Nagar", sales: 30000 },
+        { region: "Mylapore", sales: 20000 },
+      ],
+    },
   },
 }
 
@@ -322,22 +412,33 @@ export default function DashboardPage() {
   
   const data = allData[region]?.[category] || allData.india['all-categories'];
   const isAllIndiaView = region === "india";
-  const isCityAllCategoriesView = region !== "india" && category === "all-categories";
+  const isCityView = region !== "india";
+  const isAllCategoriesView = category === "all-categories";
   
-  const barChartData = isCityAllCategoriesView 
-    ? data.salesByLocalArea?.map(item => ({ ...item, region: item.area }))
-    : data.salesByRegion;
+  const barChartData = isCityView && !isAllCategoriesView 
+    ? data.salesByRegion.map(item => ({...item, region: item.region}))
+    : (isCityView && isAllCategoriesView) 
+      ? data.salesByLocalArea?.map(item => ({ ...item, region: item.area }))
+      : data.salesByRegion;
 
-  const barChartDataKey = isCityAllCategoriesView ? "area" : "region";
+  const barChartDataKey = isCityView && !isAllCategoriesView
+    ? "region"
+    : (isCityView && isAllCategoriesView)
+      ? "area"
+      : "region";
 
-  const barChartFill = isCityAllCategoriesView ? "var(--color-localArea)" : "var(--color-category)";
+  const barChartFill = isCityView && !isAllCategoriesView
+    ? "var(--color-category)"
+    : (isCityView && isAllCategoriesView) 
+      ? "var(--color-localArea)"
+      : "var(--color-category)";
 
   const getBarChartTitle = () => {
+    const regionName = region.charAt(0).toUpperCase() + region.slice(1);
     if (isAllIndiaView) return "Sales by Region";
-    if (isCityAllCategoriesView) {
-      const regionName = region.charAt(0).toUpperCase() + region.slice(1);
-      return `Sales by Local Area in ${regionName}`;
-    }
+    if (isCityView && isAllCategoriesView) return `Sales by Local Area in ${regionName}`;
+    const categoryName = category.charAt(0).toUpperCase() + category.slice(1).replace("-"," ");
+    if (isCityView && !isAllCategoriesView) return `Sales by Local Area for ${categoryName} in ${regionName}`;
     return "Sales by Category";
   }
 
