@@ -42,7 +42,8 @@ const PrioritizeFeaturesOutputSchema = z.object({
 export type PrioritizeFeaturesOutput = z.infer<typeof PrioritizeFeaturesOutputSchema>;
 
 export async function prioritizeFeaturesWithAI(input: PrioritizeFeaturesInput): Promise<PrioritizeFeaturesOutput | null> {
-  return prioritizeFeaturesFlow(input);
+  const result = await prioritizeFeaturesFlow(input);
+  return result;
 }
 
 const prompt = ai.definePrompt({
