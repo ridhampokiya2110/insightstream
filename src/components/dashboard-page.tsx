@@ -1119,12 +1119,12 @@ export default function DashboardPage() {
                   tickLine={false} 
                   axisLine={false} 
                   tickMargin={8} 
-                  angle={isAllIndiaView ? -45 : 0}
-                  textAnchor={isAllIndiaView ? "end" : "middle"}
+                  angle={0}
+                  textAnchor={"middle"}
                   interval={0}
                   tickFormatter={(value) => {
                     if (isAllIndiaView && typeof value === 'string') {
-                      return value.split('-').map(w => w.charAt(0)).join('');
+                      return value.split('-').map(w => w.charAt(0).toUpperCase()).join('');
                     }
                     return value;
                   }}
