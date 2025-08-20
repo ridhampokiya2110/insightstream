@@ -49,11 +49,18 @@ const prompt = ai.definePrompt({
   name: 'prioritizeFeaturesPrompt',
   input: {schema: PrioritizeFeaturesInputSchema},
   output: {schema: PrioritizeFeaturesOutputSchema},
-  prompt: `You are an expert product manager. Prioritize the following features based on the RICE framework (Reach, Impact, Confidence, Effort) and the provided key business metrics.
+  prompt: `You are an expert product manager AI. Your task is to prioritize a list of features based on the provided data and key business metrics using the RICE framework.
+
+You MUST follow these instructions:
+1.  Analyze the provided features and key metrics.
+2.  For each feature, calculate a priority score. A good heuristic for the score is (Reach * Impact * Confidence) / Effort.
+3.  Provide a concise rationale for the score, explaining how it aligns with the key metrics.
+4.  Sort the features in descending order based on the 'priorityScore'.
+5.  You MUST return ONLY a valid JSON object that strictly adheres to the 'PrioritizeFeaturesOutput' schema. Do not include any introductory text, markdown formatting, or conversational filler in your response.
 
 Key Metrics: {{{keyMetrics}}}
 
-Features:
+Features to analyze:
 {{#each features}}
 - Name: {{{name}}}
   - Description: {{{description}}}
@@ -61,9 +68,7 @@ Features:
   - Impact: {{{impact}}}/10
   - Confidence: {{{confidence}}}/10
   - Effort: {{{effort}}}/10
-{{/each}}
-
-Calculate a priority score for each feature. Provide a brief rationale for your scoring. Return a sorted list from highest to lowest priority.`,
+{{/each}}`,
 });
 
 const prioritizeFeaturesFlow = ai.defineFlow(
@@ -74,6 +79,9 @@ const prioritizeFeaturesFlow = ai.defineFlow(
   },
   async input => {
     const {output} = await prompt(input);
-    return output!;
+    if (!output) {
+      throw new Error('The AI failed to return a valid prioritization. Please try again.');
+    }
+    return output;
   }
 );
