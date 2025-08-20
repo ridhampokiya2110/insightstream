@@ -1124,11 +1124,7 @@ export default function DashboardPage() {
                   interval={0}
                   tickFormatter={(value) => {
                     if (isAllIndiaView && typeof value === 'string') {
-                      const words = value.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1));
-                      if (words.join(' ').length > 15) {
-                        return words.map(w => w.charAt(0)).join('');
-                      }
-                      return words.join(' ');
+                      return value.split('-').map(w => w.charAt(0)).join('');
                     }
                     return value;
                   }}
