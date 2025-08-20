@@ -41,7 +41,7 @@ const PrioritizeFeaturesOutputSchema = z.object({
 
 export type PrioritizeFeaturesOutput = z.infer<typeof PrioritizeFeaturesOutputSchema>;
 
-export async function prioritizeFeaturesWithAI(input: PrioritizeFeaturesInput): Promise<PrioritizeFeaturesOutput> {
+export async function prioritizeFeaturesWithAI(input: PrioritizeFeaturesInput): Promise<PrioritizeFeaturesOutput | null> {
   return prioritizeFeaturesFlow(input);
 }
 
@@ -79,9 +79,6 @@ const prioritizeFeaturesFlow = ai.defineFlow(
   },
   async input => {
     const {output} = await prompt(input);
-    if (!output) {
-      throw new Error('The AI failed to return a valid prioritization. Please try again.');
-    }
     return output;
   }
 );

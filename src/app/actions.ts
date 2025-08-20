@@ -11,6 +11,9 @@ export async function runPrioritizationAction(
 ): Promise<PrioritizeFeaturesOutput> {
   try {
     const result = await prioritizeFeaturesWithAI(input)
+    if (!result) {
+      throw new Error("The AI model failed to return a valid response. Please try again.");
+    }
     return result
   } catch (error) {
     console.error("AI Prioritization Error:", error)
