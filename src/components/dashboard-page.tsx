@@ -35,31 +35,31 @@ import {
 import { ChartConfig } from "@/components/ui/chart"
 
 const salesData = [
-  { month: "Jan", sales: 186, revenue: 80 },
-  { month: "Feb", sales: 305, revenue: 200 },
-  { month: "Mar", sales: 237, revenue: 120 },
-  { month: "Apr", sales: 273, revenue: 190 },
-  { month: "May", sales: 209, revenue: 130 },
-  { month: "Jun", sales: 214, revenue: 140 },
+    { month: "Jan", sales: 4250, revenue: 2100000 },
+    { month: "Feb", sales: 4800, revenue: 2450000 },
+    { month: "Mar", sales: 5100, revenue: 2800000 },
+    { month: "Apr", sales: 5500, revenue: 3100000 },
+    { month: "May", sales: 5800, revenue: 3400000 },
+    { month: "Jun", sales: 6200, revenue: 3769231 },
 ]
 
 const salesByRegionData = [
-    { region: "Mumbai", sales: 350000 },
-    { region: "Delhi", sales: 280000 },
-    { region: "Bangalore", sales: 220000 },
-    { region: "Chennai", sales: 180000 },
-    { region: "Kolkata", sales: 90000 },
-    { region: "Other", sales: 50000 },
+    { region: "Mumbai", sales: 1250000 },
+    { region: "Delhi", sales: 980000 },
+    { region: "Bangalore", sales: 820000 },
+    { region: "Chennai", sales: 450000 },
+    { region: "Kolkata", sales: 180000 },
+    { region: "Other", sales: 89231 },
 ]
 
 
 const chartConfig: ChartConfig = {
   sales: {
-    label: "Sales",
+    label: "Sales (units)",
     color: "hsl(var(--chart-1))",
   },
   revenue: {
-    label: "Revenue",
+    label: "Revenue (₹)",
     color: "hsl(var(--chart-2))",
   },
 }
@@ -101,7 +101,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Sales</CardTitle>
+            <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
             <IndianRupee className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -156,8 +156,33 @@ export default function DashboardPage() {
               <LineChart data={salesData}>
                 <CartesianGrid vertical={false} />
                 <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
-                <Tooltip content={<ChartTooltipContent />} />
+                 <YAxis
+                    yAxisId="left"
+                    tickFormatter={(value) => `${value}`}
+                    
+                  />
+                  <YAxis
+                    yAxisId="right"
+                    orientation="right"
+                    tickFormatter={(value) =>
+                      `₹${new Intl.NumberFormat("en-IN", {
+                        notation: "compact",
+                        compactDisplay: "short",
+                      }).format(value as number)}`
+                    }
+                  />
+                <Tooltip
+                    content={<ChartTooltipContent
+                        formatter={(value, name) => {
+                          if (name === "revenue") {
+                            return `₹${new Intl.NumberFormat("en-IN").format(value as number)}`
+                          }
+                          return `${value} units`
+                        }}
+                    />}
+                />
                 <Line
+                  yAxisId="left"
                   dataKey="sales"
                   type="monotone"
                   stroke="var(--color-sales)"
@@ -165,6 +190,7 @@ export default function DashboardPage() {
                   dot={true}
                 />
                  <Line
+                  yAxisId="right"
                   dataKey="revenue"
                   type="monotone"
                   stroke="var(--color-revenue)"

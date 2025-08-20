@@ -63,24 +63,40 @@ export default function PrioritizationPage() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      keyMetrics: "Increase user conversion rates and monthly recurring revenue (MRR).",
+      keyMetrics: "Increase user conversion rates, average order value (AOV), and monthly recurring revenue (MRR).",
       features: [
         {
           name: "Integrate Regional Payment Methods",
-          description: "Add GrabPay and GoPay to checkout for SEA market.",
-          reach: 50000,
+          description: "Add UPI, and major wallets like Paytm, and PhonePe to checkout for the Indian market.",
+          reach: 150000,
           impact: 9,
-          confidence: 8,
-          effort: 5,
+          confidence: 9,
+          effort: 4,
         },
         {
-          name: "Revamp Search Algorithm",
-          description: "Improve product search relevance using machine learning.",
-          reach: 250000,
-          impact: 7,
-          confidence: 6,
-          effort: 9,
+          name: "AI-Powered Product Recommendations",
+          description: "Implement a recommendation engine on product and cart pages to increase AOV.",
+          reach: 500000,
+          impact: 8,
+          confidence: 7,
+          effort: 8,
         },
+        {
+            name: "Vernacular Language Support",
+            description: "Translate the app interface and product descriptions into Hindi and other regional languages.",
+            reach: 200000,
+            impact: 7,
+            confidence: 8,
+            effort: 6,
+        },
+        {
+            name: "Seller Performance Dashboard",
+            description: "Create a new dashboard for sellers to track their sales, inventory, and customer feedback.",
+            reach: 15000,
+            impact: 6,
+            confidence: 9,
+            effort: 7,
+        }
       ],
     },
   })
