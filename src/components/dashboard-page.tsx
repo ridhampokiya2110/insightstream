@@ -40,14 +40,14 @@ type DataPoint = {
   revenue: number
 }
 
-type RegionSales = {
-  region: string
+type CitySales = {
+  city: string
   sales: number
 }
 
-type LocalAreaSales = {
-    area: string
-    sales: number
+type CategorySales = {
+    category: string;
+    sales: number;
 }
 
 type DashboardData = {
@@ -60,318 +60,261 @@ type DashboardData = {
   newSellers: number
   newSellersChange: number
   salesOverTime: DataPoint[]
-  salesByRegion: RegionSales[]
-  salesByLocalArea?: LocalAreaSales[]
+  salesByCity: CitySales[]
+  salesByCategory?: CategorySales[]
 }
 
 const allData: Record<string, Record<string, DashboardData>> = {
-  india: {
+  "all-india": {
     "all-categories": {
-      totalRevenue: 3769231.89,
-      totalRevenueChange: 20.1,
-      conversionRate: 2.5,
-      conversionRateChange: 2.0,
-      activeBuyers: 2350,
-      activeBuyersChange: 180.1,
-      newSellers: 12234,
-      newSellersChange: 19.0,
+      totalRevenue: 48590123.45,
+      totalRevenueChange: 22.5,
+      conversionRate: 2.8,
+      conversionRateChange: 1.9,
+      activeBuyers: 35000,
+      activeBuyersChange: 185.3,
+      newSellers: 150000,
+      newSellersChange: 21.7,
       salesOverTime: [
-        { month: "Jan", sales: 4250, revenue: 2100000 },
-        { month: "Feb", sales: 4800, revenue: 2450000 },
-        { month: "Mar", sales: 5100, revenue: 2800000 },
-        { month: "Apr", sales: 5500, revenue: 3100000 },
-        { month: "May", sales: 5800, revenue: 3400000 },
-        { month: "Jun", sales: 6200, revenue: 3769231 },
+        { month: "Jan", sales: 65000, revenue: 31000000 },
+        { month: "Feb", sales: 68000, revenue: 34500000 },
+        { month: "Mar", sales: 72000, revenue: 38000000 },
+        { month: "Apr", sales: 78000, revenue: 41000000 },
+        { month: "May", sales: 82000, revenue: 45000000 },
+        { month: "Jun", sales: 85000, revenue: 48590123 },
       ],
-      salesByRegion: [
-        { region: "Mumbai", sales: 1250000 },
-        { region: "Delhi", sales: 980000 },
-        { region: "Bangalore", sales: 820000 },
-        { region: "Chennai", sales: 450000 },
-        { region: "Kolkata", sales: 180000 },
-        { region: "Other", sales: 89231 },
+      salesByCity: [
+        { city: "Maharashtra", sales: 9800000 },
+        { city: "Karnataka", sales: 8200000 },
+        { city: "Delhi", sales: 7500000 },
+        { city: "Tamil Nadu", sales: 6900000 },
+        { city: "Uttar Pradesh", sales: 5500000 },
+        { city: "West Bengal", sales: 4100000 },
+        { city: "Gujarat", sales: 3800000 },
+        { city: "Rajasthan", sales: 2790123 },
       ],
     },
   },
-  mumbai: {
+  maharashtra: {
     "all-categories": {
-      totalRevenue: 1250000,
-      totalRevenueChange: 15.5,
-      conversionRate: 3.1,
-      conversionRateChange: 1.5,
-      activeBuyers: 800,
-      activeBuyersChange: 150.2,
-      newSellers: 4500,
-      newSellersChange: 22.3,
+      totalRevenue: 9800000,
+      totalRevenueChange: 25.1,
+      conversionRate: 3.5,
+      conversionRateChange: 2.1,
+      activeBuyers: 8000,
+      activeBuyersChange: 190.2,
+      newSellers: 35000,
+      newSellersChange: 28.3,
       salesOverTime: [
-        { month: "Jan", sales: 1500, revenue: 700000 },
-        { month: "Feb", sales: 1600, revenue: 800000 },
-        { month: "Mar", sales: 1700, revenue: 900000 },
-        { month: "Apr", sales: 1800, revenue: 1000000 },
-        { month: "May", sales: 1900, revenue: 1100000 },
-        { month: "Jun", sales: 2000, revenue: 1250000 },
+        { month: "Jan", sales: 12000, revenue: 6000000 },
+        { month: "Feb", sales: 12500, revenue: 6800000 },
+        { month: "Mar", sales: 13000, revenue: 7500000 },
+        { month: "Apr", sales: 14000, revenue: 8200000 },
+        { month: "May", sales: 14500, revenue: 9000000 },
+        { month: "Jun", sales: 15000, revenue: 9800000 },
       ],
-      salesByRegion: [
-        { region: "Electronics", sales: 500000 },
-        { region: "Fashion", sales: 450000 },
-        { region: "Home Goods", sales: 300000 },
+      salesByCity: [
+        { city: "Mumbai", sales: 4500000 },
+        { city: "Pune", sales: 3000000 },
+        { city: "Nagpur", sales: 1500000 },
+        { city: "Nashik", sales: 800000 },
       ],
-      salesByLocalArea: [
-          { area: "Borivali", sales: 350000 },
-          { area: "Andheri", sales: 300000 },
-          { area: "Dadar", sales: 250000 },
-          { area: "Thane", sales: 200000 },
-          { area: "Colaba", sales: 150000 },
+      salesByCategory: [
+        { category: "Electronics", sales: 4000000 },
+        { category: "Fashion", sales: 3500000 },
+        { category: "Home Goods", sales: 2300000 },
       ]
     },
     electronics: {
-      totalRevenue: 500000,
-      totalRevenueChange: 18.2,
-      conversionRate: 4.5,
-      conversionRateChange: 2.1,
-      activeBuyers: 350,
-      activeBuyersChange: 160.5,
-      newSellers: 1800,
-      newSellersChange: 25.1,
+      totalRevenue: 4000000,
+      totalRevenueChange: 28.2,
+      conversionRate: 5.2,
+      conversionRateChange: 2.5,
+      activeBuyers: 3500,
+      activeBuyersChange: 210.5,
+      newSellers: 15000,
+      newSellersChange: 31.1,
       salesOverTime: [
-        { month: "Jan", sales: 600, revenue: 200000 },
-        { month: "Feb", sales: 650, revenue: 250000 },
-        { month: "Mar", sales: 700, revenue: 300000 },
-        { month: "Apr", sales: 750, revenue: 350000 },
-        { month: "May", sales: 800, revenue: 400000 },
-        { month: "Jun", sales: 850, revenue: 500000 },
+        { month: "Jan", sales: 5000, revenue: 2000000 },
+        { month: "Feb", sales: 5200, revenue: 2500000 },
+        { month: "Mar", sales: 5500, revenue: 3000000 },
+        { month: "Apr", sales: 5800, revenue: 3400000 },
+        { month: "May", sales: 6000, revenue: 3800000 },
+        { month: "Jun", sales: 6200, revenue: 4000000 },
       ],
-      salesByRegion: [
-        { region: "Borivali", sales: 150000 },
-        { region: "Andheri", sales: 120000 },
-        { region: "Dadar", sales: 100000 },
-        { region: "Thane", sales: 80000 },
-        { region: "Colaba", sales: 50000 },
+      salesByCity: [
+        { city: "Mumbai", sales: 2000000 },
+        { city: "Pune", sales: 1200000 },
+        { city: "Nagpur", sales: 500000 },
+        { city: "Nashik", sales: 300000 },
       ],
-    },
-    fashion: {
-      totalRevenue: 450000,
-      totalRevenueChange: 12.1,
-      conversionRate: 2.8,
-      conversionRateChange: 1.2,
-      activeBuyers: 300,
-      activeBuyersChange: 140.3,
-      newSellers: 1500,
-      newSellersChange: 18.7,
+    }
+  },
+  karnataka: {
+    "all-categories": {
+      totalRevenue: 8200000,
+      totalRevenueChange: 23.4,
+      conversionRate: 4.1,
+      conversionRateChange: 2.9,
+      activeBuyers: 7500,
+      activeBuyersChange: 188.1,
+      newSellers: 32000,
+      newSellersChange: 26.5,
       salesOverTime: [
-        { month: "Jan", sales: 500, revenue: 250000 },
-        { month: "Feb", sales: 550, revenue: 280000 },
-        { month: "Mar", sales: 600, revenue: 320000 },
-        { month: "Apr", sales: 650, revenue: 350000 },
-        { month: "May", sales: 700, revenue: 400000 },
-        { month: "Jun", sales: 750, revenue: 450000 },
+        { month: "Jan", sales: 10000, revenue: 5000000 },
+        { month: "Feb", sales: 10500, revenue: 5800000 },
+        { month: "Mar", sales: 11000, revenue: 6500000 },
+        { month: "Apr", sales: 11500, revenue: 7200000 },
+        { month: "May", sales: 12000, revenue: 7800000 },
+        { month: "Jun", sales: 12500, revenue: 8200000 },
       ],
-      salesByRegion: [
-        { region: "Borivali", sales: 120000 },
-        { region: "Andheri", sales: 100000 },
-        { region: "Dadar", sales: 80000 },
-        { region: "Thane", sales: 80000 },
-        { region: "Colaba", sales: 70000 },
+      salesByCity: [
+          { city: "Bengaluru", sales: 5500000 },
+          { city: "Mysuru", sales: 1500000 },
+          { city: "Mangaluru", sales: 800000 },
+          { city: "Hubballi", sales: 400000 },
       ],
+      salesByCategory: [
+          { category: "Electronics", sales: 3800000 },
+          { category: "Fashion", sales: 2800000 },
+          { category: "Home Goods", sales: 1600000 },
+      ]
     },
-    "home-goods": {
-        totalRevenue: 300000,
-        totalRevenueChange: 10.3,
-        conversionRate: 2.1,
-        conversionRateChange: 0.9,
-        activeBuyers: 150,
-        activeBuyersChange: 120.1,
-        newSellers: 1200,
-        newSellersChange: 15.4,
+    electronics: {
+        totalRevenue: 3800000,
+        totalRevenueChange: 26.9,
+        conversionRate: 5.9,
+        conversionRateChange: 3.4,
+        activeBuyers: 3200,
+        activeBuyersChange: 205.2,
+        newSellers: 14000,
+        newSellersChange: 29.8,
         salesOverTime: [
-            { month: "Jan", sales: 400, revenue: 150000 },
-            { month: "Feb", sales: 400, revenue: 170000 },
-            { month: "Mar", sales: 400, revenue: 200000 },
-            { month: "Apr", sales: 400, revenue: 230000 },
-            { month: "May", sales: 400, revenue: 250000 },
-            { month: "Jun", sales: 500, revenue: 300000 },
+          { month: "Jan", sales: 4000, revenue: 1800000 },
+          { month: "Feb", sales: 4200, revenue: 2200000 },
+          { month: "Mar", sales: 4500, revenue: 2600000 },
+          { month: "Apr", sales: 4800, revenue: 3000000 },
+          { month: "May", sales: 5000, revenue: 3400000 },
+          { month: "Jun", sales: 5100, revenue: 3800000 },
         ],
-        salesByRegion: [
-          { region: "Borivali", sales: 80000 },
-          { region: "Andheri", sales: 80000 },
-          { region: "Dadar", sales: 70000 },
-          { region: "Thane", sales: 40000 },
-          { region: "Colaba", sales: 30000 },
-      ],
+        salesByCity: [
+          { city: "Bengaluru", sales: 2500000 },
+          { city: "Mysuru", sales: 700000 },
+          { city: "Mangaluru", sales: 400000 },
+          { city: "Hubballi", sales: 200000 },
+        ],
     }
   },
   delhi: {
     "all-categories": {
-      totalRevenue: 980000,
-      totalRevenueChange: 22.3,
-      conversionRate: 2.8,
-      conversionRateChange: 2.3,
-      activeBuyers: 750,
-      activeBuyersChange: 190.5,
-      newSellers: 3800,
-      newSellersChange: 21.2,
-      salesOverTime: [
-        { month: "Jan", sales: 1200, revenue: 500000 },
-        { month: "Feb", sales: 1300, revenue: 600000 },
-        { month: "Mar", sales: 1400, revenue: 700000 },
-        { month: "Apr", sales: 1500, revenue: 800000 },
-        { month: "May", sales: 1600, revenue: 900000 },
-        { month: "Jun", sales: 1700, revenue: 980000 },
-      ],
-      salesByRegion: [
-        { region: "Electronics", sales: 400000 },
-        { region: "Fashion", sales: 350000 },
-        { region: "Home Goods", sales: 230000 },
-      ],
-       salesByLocalArea: [
-          { area: "Connaught Place", sales: 280000 },
-          { area: "Karol Bagh", sales: 220000 },
-          { area: "Chandni Chowk", sales: 180000 },
-          { area: "Lajpat Nagar", sales: 150000 },
-          { area: "Nehru Place", sales: 150000 },
-      ]
+        totalRevenue: 7500000,
+        totalRevenueChange: 21.8,
+        conversionRate: 3.9,
+        conversionRateChange: 2.5,
+        activeBuyers: 7000,
+        activeBuyersChange: 180.4,
+        newSellers: 30000,
+        newSellersChange: 25.1,
+        salesOverTime: [
+            { month: "Jan", sales: 9000, revenue: 4500000 },
+            { month: "Feb", sales: 9500, revenue: 5200000 },
+            { month: "Mar", sales: 10000, revenue: 5900000 },
+            { month: "Apr", sales: 10500, revenue: 6500000 },
+            { month: "May", sales: 11000, revenue: 7000000 },
+            { month: "Jun", sales: 11200, revenue: 7500000 },
+        ],
+        salesByCity: [
+            { city: "New Delhi", sales: 5000000 },
+            { city: "Noida", sales: 1500000 },
+            { city: "Gurugram", sales: 1000000 },
+        ],
+        salesByCategory: [
+            { category: "Electronics", sales: 3200000 },
+            { category: "Fashion", sales: 2500000 },
+            { category: "Home Goods", sales: 1800000 },
+        ]
     },
-    electronics: {
-      totalRevenue: 400000,
-      totalRevenueChange: 25.1,
-      conversionRate: 3.8,
-      conversionRateChange: 2.5,
-      activeBuyers: 300,
-      activeBuyersChange: 200.1,
-      newSellers: 1500,
-      newSellersChange: 24.3,
-      salesOverTime: [
-        { month: "Jan", sales: 500, revenue: 200000 },
-        { month: "Feb", sales: 550, revenue: 240000 },
-        { month: "Mar", sales: 600, revenue: 280000 },
-        { month: "Apr", sales: 650, revenue: 320000 },
-        { month: "May", sales: 700, revenue: 360000 },
-        { month: "Jun", sales: 750, revenue: 400000 },
-      ],
-      salesByRegion: [
-        { region: "Nehru Place", sales: 100000 },
-        { region: "Karol Bagh", sales: 90000 },
-        { region: "Chandni Chowk", sales: 80000 },
-        { region: "Connaught Place", sales: 70000 },
-        { region: "Lajpat Nagar", sales: 60000 },
-      ],
-    },
+    fashion: {
+        totalRevenue: 2500000,
+        totalRevenueChange: 19.2,
+        conversionRate: 4.5,
+        conversionRateChange: 2.2,
+        activeBuyers: 3000,
+        activeBuyersChange: 175.9,
+        newSellers: 12000,
+        newSellersChange: 22.4,
+        salesOverTime: [
+          { month: "Jan", sales: 3000, revenue: 1000000 },
+          { month: "Feb", sales: 3200, revenue: 1200000 },
+          { month: "Mar", sales: 3500, revenue: 1500000 },
+          { month: "Apr", sales: 3800, revenue: 1800000 },
+          { month: "May", sales: 4000, revenue: 2200000 },
+          { month: "Jun", sales: 4100, revenue: 2500000 },
+        ],
+        salesByCity: [
+          { city: "New Delhi", sales: 1500000 },
+          { city: "Noida", sales: 600000 },
+          { city: "Gurugram", sales: 400000 },
+        ],
+    }
   },
-  bangalore: {
+  "tamil-nadu": {
     "all-categories": {
-      totalRevenue: 820000,
-      totalRevenueChange: 18.7,
-      conversionRate: 3.5,
-      conversionRateChange: 2.8,
-      activeBuyers: 650,
-      activeBuyersChange: 175.6,
-      newSellers: 3200,
-      newSellersChange: 18.5,
-      salesOverTime: [
-        { month: "Jan", sales: 1000, revenue: 400000 },
-        { month: "Feb", sales: 1100, revenue: 450000 },
-        { month: "Mar", sales: 1200, revenue: 550000 },
-        { month: "Apr", sales: 1300, revenue: 650000 },
-        { month: "May", sales: 1400, revenue: 750000 },
-        { month: "Jun", sales: 1500, revenue: 820000 },
-      ],
-      salesByRegion: [
-        { region: "Electronics", sales: 350000 },
-        { region: "Fashion", sales: 280000 },
-        { region: "Home Goods", sales: 190000 },
-      ],
-      salesByLocalArea: [
-          { area: "Koramangala", sales: 250000 },
-          { area: "Indiranagar", sales: 200000 },
-          { area: "Jayanagar", sales: 150000 },
-          { area: "Whitefield", sales: 120000 },
-          { area: "HSR Layout", sales: 100000 },
-      ]
-    },
-     electronics: {
-      totalRevenue: 350000,
-      totalRevenueChange: 21.3,
-      conversionRate: 4.8,
-      conversionRateChange: 3.1,
-      activeBuyers: 280,
-      activeBuyersChange: 180.2,
-      newSellers: 1300,
-      newSellersChange: 20.1,
-      salesOverTime: [
-        { month: "Jan", sales: 400, revenue: 150000 },
-        { month: "Feb", sales: 450, revenue: 180000 },
-        { month: "Mar", sales: 500, revenue: 220000 },
-        { month: "Apr", sales: 550, revenue: 260000 },
-        { month: "May", sales: 600, revenue: 300000 },
-        { month: "Jun", sales: 650, revenue: 350000 },
-      ],
-      salesByRegion: [
-        { region: "Koramangala", sales: 100000 },
-        { region: "Indiranagar", sales: 80000 },
-        { region: "Whitefield", sales: 60000 },
-        { region: "Jayanagar", sales: 60000 },
-        { region: "HSR Layout", sales: 50000 },
-      ],
-    },
-  },
-  chennai: {
-    "all-categories": {
-      totalRevenue: 450000,
-      totalRevenueChange: 14.2,
-      conversionRate: 2.2,
-      conversionRateChange: 1.8,
-      activeBuyers: 300,
-      activeBuyersChange: 130.2,
-      newSellers: 1800,
-      newSellersChange: 16.8,
-      salesOverTime: [
-        { month: "Jan", sales: 600, revenue: 200000 },
-        { month: "Feb", sales: 650, revenue: 250000 },
-        { month: "Mar", sales: 700, revenue: 300000 },
-        { month: "Apr", sales: 750, revenue: 350000 },
-        { month: "May", sales: 800, revenue: 400000 },
-        { month: "Jun", sales: 850, revenue: 450000 },
-      ],
-      salesByRegion: [
-        { region: "Electronics", sales: 180000 },
-        { region: "Fashion", sales: 150000 },
-        { region: "Home Goods", sales: 120000 },
-      ],
-      salesByLocalArea: [
-          { area: "T. Nagar", sales: 150000 },
-          { area: "Adyar", sales: 100000 },
-          { area: "Velachery", sales: 80000 },
-          { area: "Anna Nagar", sales: 70000 },
-          { area: "Mylapore", sales: 50000 },
-      ]
-    },
-    electronics: {
-      totalRevenue: 180000,
-      totalRevenueChange: 16.5,
+      totalRevenue: 6900000,
+      totalRevenueChange: 19.5,
       conversionRate: 3.2,
-      conversionRateChange: 2.1,
-      activeBuyers: 120,
-      activeBuyersChange: 140.7,
-      newSellers: 700,
-      newSellersChange: 18.2,
+      conversionRateChange: 1.8,
+      activeBuyers: 6000,
+      activeBuyersChange: 165.7,
+      newSellers: 28000,
+      newSellersChange: 23.2,
       salesOverTime: [
-        { month: "Jan", sales: 250, revenue: 80000 },
-        { month: "Feb", sales: 280, revenue: 100000 },
-        { month: "Mar", sales: 310, revenue: 120000 },
-        { month: "Apr", sales: 340, revenue: 140000 },
-        { month: "May", sales: 370, revenue: 160000 },
-        { month: "Jun", sales: 400, revenue: 180000 },
+        { month: "Jan", sales: 8000, revenue: 4000000 },
+        { month: "Feb", sales: 8500, revenue: 4600000 },
+        { month: "Mar", sales: 9000, revenue: 5200000 },
+        { month: "Apr", sales: 9500, revenue: 5800000 },
+        { month: "May", sales: 10000, revenue: 6400000 },
+        { month: "Jun", sales: 10200, revenue: 6900000 },
       ],
-      salesByRegion: [
-        { region: "T. Nagar", sales: 60000 },
-        { region: "Adyar", sales: 40000 },
-        { region: "Velachery", sales: 30000 },
-        { region: "Anna Nagar", sales: 30000 },
-        { region: "Mylapore", sales: 20000 },
+      salesByCity: [
+        { city: "Chennai", sales: 3500000 },
+        { city: "Coimbatore", sales: 2000000 },
+        { city: "Madurai", sales: 1000000 },
+        { city: "Tiruchirappalli", sales: 400000 },
       ],
+      salesByCategory: [
+        { category: "Electronics", sales: 2800000 },
+        { category: "Fashion", sales: 2200000 },
+        { category: "Home Goods", sales: 1900000 },
+      ]
     },
-  },
-}
+    "home-goods": {
+      totalRevenue: 1900000,
+      totalRevenueChange: 17.1,
+      conversionRate: 3.8,
+      conversionRateChange: 1.5,
+      activeBuyers: 2200,
+      activeBuyersChange: 155.4,
+      newSellers: 10000,
+      newSellersChange: 20.3,
+      salesOverTime: [
+        { month: "Jan", sales: 2500, revenue: 800000 },
+        { month: "Feb", sales: 2700, revenue: 950000 },
+        { month: "Mar", sales: 3000, revenue: 1100000 },
+        { month: "Apr", sales: 3200, revenue: 1300000 },
+        { month: "May", sales: 3500, revenue: 1600000 },
+        { month: "Jun", sales: 3600, revenue: 1900000 },
+      ],
+      salesByCity: [
+        { city: "Chennai", sales: 900000 },
+        { city: "Coimbatore", sales: 500000 },
+        { city: "Madurai", sales: 300000 },
+        { city: "Tiruchirappalli", sales: 200000 },
+      ],
+    }
+  }
+};
+
 
 const chartConfig: ChartConfig = {
   sales: {
@@ -382,11 +325,11 @@ const chartConfig: ChartConfig = {
     label: "Revenue (₹)",
     color: "hsl(var(--chart-2))",
   },
-  category: {
+  city: {
       label: "Sales (₹)",
       color: "hsl(var(--chart-1))"
   },
-  localArea: {
+  category: {
       label: "Sales (₹)",
       color: "hsl(var(--chart-2))"
   }
@@ -402,44 +345,39 @@ const formatCompactCurrency = (value: number) =>
   }).format(value)}`
 
 export default function DashboardPage() {
-  const [region, setRegion] = React.useState("india")
+  const [state, setState] = React.useState("all-india")
   const [category, setCategory] = React.useState("all-categories")
   
-  const handleRegionChange = (newRegion: string) => {
-    setRegion(newRegion);
+  const handleStateChange = (newState: string) => {
+    setState(newState);
     setCategory("all-categories");
   };
   
-  const data = allData[region]?.[category] || allData.india['all-categories'];
-  const isAllIndiaView = region === "india";
-  const isCityView = region !== "india";
+  const data = allData[state]?.[category] || allData["all-india"]['all-categories'];
+  const isAllIndiaView = state === "all-india";
+  const isStateView = state !== "all-india";
   const isAllCategoriesView = category === "all-categories";
   
-  const barChartData = isCityView && !isAllCategoriesView 
-    ? data.salesByRegion.map(item => ({...item, region: item.region}))
-    : (isCityView && isAllCategoriesView) 
-      ? data.salesByLocalArea?.map(item => ({ ...item, region: item.area }))
-      : data.salesByRegion;
+  const barChartData = isStateView && isAllCategoriesView
+    ? data.salesByCity
+    : isStateView && !isAllCategoriesView
+      ? data.salesByCity
+      : data.salesByCity;
 
-  const barChartDataKey = isCityView && !isAllCategoriesView
-    ? "region"
-    : (isCityView && isAllCategoriesView)
-      ? "area"
-      : "region";
-
-  const barChartFill = isCityView && !isAllCategoriesView
-    ? "var(--color-category)"
-    : (isCityView && isAllCategoriesView) 
-      ? "var(--color-localArea)"
+  const barChartDataKey = isAllIndiaView ? "city" : "city";
+  
+  const barChartFill = isStateView && isAllCategoriesView
+      ? "var(--color-city)"
       : "var(--color-category)";
 
+
   const getBarChartTitle = () => {
-    const regionName = region.charAt(0).toUpperCase() + region.slice(1);
-    if (isAllIndiaView) return "Sales by Region";
-    if (isCityView && isAllCategoriesView) return `Sales by Local Area in ${regionName}`;
+    const stateName = state.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    if (isAllIndiaView) return "Sales by State";
+    if (isStateView && isAllCategoriesView) return `Sales by City in ${stateName}`;
     const categoryName = category.charAt(0).toUpperCase() + category.slice(1).replace("-"," ");
-    if (isCityView && !isAllCategoriesView) return `Sales by Local Area for ${categoryName} in ${regionName}`;
-    return "Sales by Category";
+    if (isStateView && !isAllCategoriesView) return `Sales for ${categoryName} by City in ${stateName}`;
+    return "Sales Data";
   }
 
 
@@ -450,19 +388,20 @@ export default function DashboardPage() {
           Marketplace Dashboard
         </h1>
         <div className="flex gap-2">
-          <Select value={region} onValueChange={handleRegionChange}>
+          <Select value={state} onValueChange={handleStateChange}>
             <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select Region" />
+              <SelectValue placeholder="Select State" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="india">India</SelectItem>
-              <SelectItem value="mumbai">Mumbai</SelectItem>
+              <SelectItem value="all-india">All India</SelectItem>
+              <SelectItem value="maharashtra">Maharashtra</SelectItem>
+              <SelectItem value="karnataka">Karnataka</SelectItem>
               <SelectItem value="delhi">Delhi</SelectItem>
-              <SelectItem value="bangalore">Bangalore</SelectItem>
-              <SelectItem value="chennai">Chennai</SelectItem>
+              <SelectItem value="tamil-nadu">Tamil Nadu</SelectItem>
+              {/* Add other 16 states here */}
             </SelectContent>
           </Select>
-          <Select value={category} onValueChange={setCategory} disabled={region === 'india'}>
+          <Select value={category} onValueChange={setCategory} disabled={state === 'all-india'}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Select Category" />
             </SelectTrigger>
@@ -503,7 +442,7 @@ export default function DashboardPage() {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+{data.activeBuyers}</div>
+            <div className="text-2xl font-bold">+{data.activeBuyers.toLocaleString('en-IN')}</div>
             <p className="text-xs text-muted-foreground">+{data.activeBuyersChange}% from last month</p>
           </CardContent>
         </Card>
@@ -515,7 +454,7 @@ export default function DashboardPage() {
               <ShoppingCart className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">+{data.newSellers}</div>
+              <div className="text-2xl font-bold">+{data.newSellers.toLocaleString('en-IN')}</div>
               <p className="text-xs text-muted-foreground">
                 +{data.newSellersChange}% from last month
               </p>
@@ -536,8 +475,7 @@ export default function DashboardPage() {
                 <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
                  <YAxis
                     yAxisId="left"
-                    tickFormatter={(value) => `${value}`}
-                    
+                    tickFormatter={(value) => `${(value as number / 1000)}k`}
                   />
                   <YAxis
                     yAxisId="right"
@@ -550,7 +488,7 @@ export default function DashboardPage() {
                           if (name === "revenue") {
                             return formatCurrency(value as number)
                           }
-                          return `${value} units`
+                          return `${(value as number).toLocaleString('en-IN')} units`
                         }}
                     />}
                 />
@@ -601,5 +539,3 @@ export default function DashboardPage() {
     </div>
   )
 }
-
-    
