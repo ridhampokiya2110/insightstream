@@ -36,7 +36,7 @@ import { Alert, AlertDescription, AlertTitle } from "./ui/alert"
 const featureSchema = z.object({
   name: z.string().min(1, "Feature name is required."),
   description: z.string().min(1, "Description is required."),
-  reach: z.coerce.number().min(0, "Reach must be a positive number."),
+  reach: z.coerce.number().min(1, "Reach must be a positive number."),
   impact: z.coerce.number().min(1).max(10, "Impact must be between 1 and 10."),
   confidence: z.coerce
     .number()
@@ -285,7 +285,7 @@ export default function PrioritizationPage() {
                       append({
                         name: "",
                         description: "",
-                        reach: 0,
+                        reach: 1,
                         impact: 5,
                         confidence: 5,
                         effort: 5,
@@ -355,3 +355,5 @@ export default function PrioritizationPage() {
     </div>
   )
 }
+
+    
