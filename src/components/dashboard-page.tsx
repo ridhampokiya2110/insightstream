@@ -750,9 +750,19 @@ export default function DashboardPage() {
                   tickLine={false} 
                   axisLine={false} 
                   tickMargin={8} 
-                  angle={-45}
-                  textAnchor="end"
+                  angle={isAllIndiaView ? 0 : -45}
+                  textAnchor={isAllIndiaView ? "middle" : "end"}
                   interval={0}
+                  tickFormatter={(value) => {
+                    if (isAllIndiaView && typeof value === 'string') {
+                      const words = value.split('-');
+                      if (words.length > 1) {
+                        return words.map(word => word.charAt(0).toUpperCase()).join('');
+                      }
+                      return value.charAt(0).toUpperCase();
+                    }
+                    return value;
+                  }}
                 />
                 <YAxis tickFormatter={formatCompactCurrency} />
                 <Tooltip
