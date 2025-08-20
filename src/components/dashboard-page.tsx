@@ -147,7 +147,31 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { city: "Nagpur", sales: 500000 },
         { city: "Nashik", sales: 300000 },
       ],
-    }
+    },
+    "home-goods": {
+        totalRevenue: 2300000,
+        totalRevenueChange: 18.5,
+        conversionRate: 3.1,
+        conversionRateChange: 1.7,
+        activeBuyers: 2500,
+        activeBuyersChange: 170.3,
+        newSellers: 8000,
+        newSellersChange: 22.8,
+        salesOverTime: [
+          { month: "Jan", sales: 2800, revenue: 1000000 },
+          { month: "Feb", sales: 3000, revenue: 1200000 },
+          { month: "Mar", sales: 3200, revenue: 1400000 },
+          { month: "Apr", sales: 3400, revenue: 1600000 },
+          { month: "May", sales: 3600, revenue: 1900000 },
+          { month: "Jun", sales: 3800, revenue: 2300000 },
+        ],
+        salesByCity: [
+          { city: "Mumbai", sales: 1100000 },
+          { city: "Pune", sales: 700000 },
+          { city: "Nagpur", sales: 350000 },
+          { city: "Nashik", sales: 150000 },
+        ],
+      }
   },
   karnataka: {
     "all-categories": {
@@ -596,7 +620,7 @@ export default function DashboardPage() {
     setCategory("all-categories");
   };
   
-  const data = allData[state]?.[category] || allData["all-india"]['all-categories'];
+  const data = allData[state]?.[category] || allData[state]?.["all-categories"] || allData["all-india"]['all-categories'];
   const isAllIndiaView = state === "all-india";
   
   const barChartData = data.salesByCity
