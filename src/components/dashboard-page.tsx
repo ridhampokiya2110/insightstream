@@ -365,7 +365,31 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { city: "Vadodara", sales: 250000 },
         { city: "Rajkot", sales: 150000 },
       ],
-    }
+    },
+    electronics: {
+      totalRevenue: 1000000,
+      totalRevenueChange: 19.8,
+      conversionRate: 3.8,
+      conversionRateChange: 1.6,
+      activeBuyers: 1200,
+      activeBuyersChange: 155.2,
+      newSellers: 5000,
+      newSellersChange: 22.7,
+      salesOverTime: [
+        { month: "Jan", sales: 1500, revenue: 400000 },
+        { month: "Feb", sales: 1600, revenue: 480000 },
+        { month: "Mar", sales: 1700, revenue: 550000 },
+        { month: "Apr", sales: 1800, revenue: 650000 },
+        { month: "May", sales: 1900, revenue: 800000 },
+        { month: "Jun", sales: 2000, revenue: 1000000 },
+      ],
+      salesByCity: [
+        { city: "Ahmedabad", sales: 500000 },
+        { city: "Surat", sales: 250000 },
+        { city: "Vadodara", sales: 150000 },
+        { city: "Rajkot", sales: 100000 },
+      ],
+    },
   },
   rajasthan: {
     "all-categories": {
@@ -574,25 +598,17 @@ export default function DashboardPage() {
   
   const data = allData[state]?.[category] || allData["all-india"]['all-categories'];
   const isAllIndiaView = state === "all-india";
-  const isStateView = state !== "all-india";
-  const isAllCategoriesView = category === "all-categories";
   
   const barChartData = data.salesByCity
 
   const barChartDataKey = "city";
   
-  const barChartFill = isStateView && isAllCategoriesView
-      ? "var(--color-city)"
-      : "var(--color-category)";
-
-
   const getBarChartTitle = () => {
     const stateName = state.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     if (isAllIndiaView) return "Sales by State";
-    if (isStateView && isAllCategoriesView) return `Sales by City in ${stateName}`;
+    if (category === "all-categories") return `Sales by City in ${stateName}`;
     const categoryName = category.charAt(0).toUpperCase() + category.slice(1).replace("-"," ");
-    if (isStateView && !isAllCategoriesView) return `Sales for ${categoryName} by City in ${stateName}`;
-    return "Sales Data";
+    return `Sales for ${categoryName} by City in ${stateName}`;
   }
 
 
@@ -766,7 +782,7 @@ export default function DashboardPage() {
                         formatter={(value) => formatCurrency(value as number)}
                     />}
                 />
-                <Bar dataKey="sales" fill={barChartFill} radius={4} />
+                <Bar dataKey="sales" fill="var(--color-city)" radius={4} />
               </BarChart>
             </ChartContainer>
           </CardContent>
