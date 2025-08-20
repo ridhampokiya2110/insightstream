@@ -1,4 +1,3 @@
-
 "use client"
 
 import * as React from "react"
@@ -578,13 +577,9 @@ export default function DashboardPage() {
   const isStateView = state !== "all-india";
   const isAllCategoriesView = category === "all-categories";
   
-  const barChartData = isStateView && isAllCategoriesView
-    ? data.salesByCity
-    : isStateView && !isAllCategoriesView
-      ? data.salesByCity
-      : data.salesByCity;
+  const barChartData = data.salesByCity
 
-  const barChartDataKey = isAllIndiaView ? "city" : "city";
+  const barChartDataKey = "city";
   
   const barChartFill = isStateView && isAllCategoriesView
       ? "var(--color-city)"
@@ -750,16 +745,16 @@ export default function DashboardPage() {
                   tickLine={false} 
                   axisLine={false} 
                   tickMargin={8} 
-                  angle={isAllIndiaView ? 0 : -45}
-                  textAnchor={isAllIndiaView ? "middle" : "end"}
+                  angle={isAllIndiaView ? -45 : 0}
+                  textAnchor={isAllIndiaView ? "end" : "middle"}
                   interval={0}
                   tickFormatter={(value) => {
                     if (isAllIndiaView && typeof value === 'string') {
-                      const words = value.split('-');
-                      if (words.length > 1) {
-                        return words.map(word => word.charAt(0).toUpperCase()).join('');
+                      const words = value.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1));
+                      if (words.join(' ').length > 15) {
+                        return words.map(w => w.charAt(0)).join('');
                       }
-                      return value.charAt(0).toUpperCase();
+                      return words.join(' ');
                     }
                     return value;
                   }}
