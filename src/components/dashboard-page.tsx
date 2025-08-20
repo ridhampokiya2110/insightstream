@@ -2,7 +2,7 @@
 "use client"
 
 import * as React from "react"
-import { IndianRupee, TrendingUp, Users, ArrowUp, ShoppingCart } from "lucide-react"
+import { IndianRupee, TrendingUp, Users, ShoppingCart } from "lucide-react"
 import {
   Bar,
   BarChart,
@@ -34,24 +34,220 @@ import {
 } from "@/components/ui/select"
 import { ChartConfig } from "@/components/ui/chart"
 
-const salesData = [
-    { month: "Jan", sales: 4250, revenue: 2100000 },
-    { month: "Feb", sales: 4800, revenue: 2450000 },
-    { month: "Mar", sales: 5100, revenue: 2800000 },
-    { month: "Apr", sales: 5500, revenue: 3100000 },
-    { month: "May", sales: 5800, revenue: 3400000 },
-    { month: "Jun", sales: 6200, revenue: 3769231 },
-]
+type DataPoint = {
+  month: string
+  sales: number
+  revenue: number
+}
 
-const salesByRegionData = [
-    { region: "Mumbai", sales: 1250000 },
-    { region: "Delhi", sales: 980000 },
-    { region: "Bangalore", sales: 820000 },
-    { region: "Chennai", sales: 450000 },
-    { region: "Kolkata", sales: 180000 },
-    { region: "Other", sales: 89231 },
-]
+type RegionSales = {
+  region: string
+  sales: number
+}
 
+type DashboardData = {
+  totalRevenue: number
+  totalRevenueChange: number
+  conversionRate: number
+  conversionRateChange: number
+  activeBuyers: number
+  activeBuyersChange: number
+  newSellers: number
+  newSellersChange: number
+  salesOverTime: DataPoint[]
+  salesByRegion: RegionSales[]
+}
+
+const allData: Record<string, Record<string, DashboardData>> = {
+  india: {
+    "all-categories": {
+      totalRevenue: 3769231.89,
+      totalRevenueChange: 20.1,
+      conversionRate: 2.5,
+      conversionRateChange: 2.0,
+      activeBuyers: 2350,
+      activeBuyersChange: 180.1,
+      newSellers: 12234,
+      newSellersChange: 19.0,
+      salesOverTime: [
+        { month: "Jan", sales: 4250, revenue: 2100000 },
+        { month: "Feb", sales: 4800, revenue: 2450000 },
+        { month: "Mar", sales: 5100, revenue: 2800000 },
+        { month: "Apr", sales: 5500, revenue: 3100000 },
+        { month: "May", sales: 5800, revenue: 3400000 },
+        { month: "Jun", sales: 6200, revenue: 3769231 },
+      ],
+      salesByRegion: [
+        { region: "Mumbai", sales: 1250000 },
+        { region: "Delhi", sales: 980000 },
+        { region: "Bangalore", sales: 820000 },
+        { region: "Chennai", sales: 450000 },
+        { region: "Kolkata", sales: 180000 },
+        { region: "Other", sales: 89231 },
+      ],
+    },
+  },
+  mumbai: {
+    "all-categories": {
+      totalRevenue: 1250000,
+      totalRevenueChange: 15.5,
+      conversionRate: 3.1,
+      conversionRateChange: 1.5,
+      activeBuyers: 800,
+      activeBuyersChange: 150.2,
+      newSellers: 4500,
+      newSellersChange: 22.3,
+      salesOverTime: [
+        { month: "Jan", sales: 1500, revenue: 700000 },
+        { month: "Feb", sales: 1600, revenue: 800000 },
+        { month: "Mar", sales: 1700, revenue: 900000 },
+        { month: "Apr", sales: 1800, revenue: 1000000 },
+        { month: "May", sales: 1900, revenue: 1100000 },
+        { month: "Jun", sales: 2000, revenue: 1250000 },
+      ],
+      salesByRegion: [
+        { region: "Electronics", sales: 500000 },
+        { region: "Fashion", sales: 450000 },
+        { region: "Home Goods", sales: 300000 },
+      ],
+    },
+    electronics: {
+      totalRevenue: 500000,
+      totalRevenueChange: 18.2,
+      conversionRate: 4.5,
+      conversionRateChange: 2.1,
+      activeBuyers: 350,
+      activeBuyersChange: 160.5,
+      newSellers: 1800,
+      newSellersChange: 25.1,
+      salesOverTime: [
+        { month: "Jan", sales: 600, revenue: 200000 },
+        { month: "Feb", sales: 650, revenue: 250000 },
+        { month: "Mar", sales: 700, revenue: 300000 },
+        { month: "Apr", sales: 750, revenue: 350000 },
+        { month: "May", sales: 800, revenue: 400000 },
+        { month: "Jun", sales: 850, revenue: 500000 },
+      ],
+      salesByRegion: [],
+    },
+    fashion: {
+      totalRevenue: 450000,
+      totalRevenueChange: 12.1,
+      conversionRate: 2.8,
+      conversionRateChange: 1.2,
+      activeBuyers: 300,
+      activeBuyersChange: 140.3,
+      newSellers: 1500,
+      newSellersChange: 18.7,
+      salesOverTime: [
+        { month: "Jan", sales: 500, revenue: 250000 },
+        { month: "Feb", sales: 550, revenue: 280000 },
+        { month: "Mar", sales: 600, revenue: 320000 },
+        { month: "Apr", sales: 650, revenue: 350000 },
+        { month: "May", sales: 700, revenue: 400000 },
+        { month: "Jun", sales: 750, revenue: 450000 },
+      ],
+      salesByRegion: [],
+    },
+    "home-goods": {
+        totalRevenue: 300000,
+        totalRevenueChange: 10.3,
+        conversionRate: 2.1,
+        conversionRateChange: 0.9,
+        activeBuyers: 150,
+        activeBuyersChange: 120.1,
+        newSellers: 1200,
+        newSellersChange: 15.4,
+        salesOverTime: [
+            { month: "Jan", sales: 400, revenue: 150000 },
+            { month: "Feb", sales: 400, revenue: 170000 },
+            { month: "Mar", sales: 400, revenue: 200000 },
+            { month: "Apr", sales: 400, revenue: 230000 },
+            { month: "May", sales: 400, revenue: 250000 },
+            { month: "Jun", sales: 500, revenue: 300000 },
+        ],
+        salesByRegion: [],
+    }
+  },
+  delhi: {
+    "all-categories": {
+      totalRevenue: 980000,
+      totalRevenueChange: 22.3,
+      conversionRate: 2.8,
+      conversionRateChange: 2.3,
+      activeBuyers: 750,
+      activeBuyersChange: 190.5,
+      newSellers: 3800,
+      newSellersChange: 21.2,
+      salesOverTime: [
+        { month: "Jan", sales: 1200, revenue: 500000 },
+        { month: "Feb", sales: 1300, revenue: 600000 },
+        { month: "Mar", sales: 1400, revenue: 700000 },
+        { month: "Apr", sales: 1500, revenue: 800000 },
+        { month: "May", sales: 1600, revenue: 900000 },
+        { month: "Jun", sales: 1700, revenue: 980000 },
+      ],
+      salesByRegion: [
+        { region: "Electronics", sales: 400000 },
+        { region: "Fashion", sales: 350000 },
+        { region: "Home Goods", sales: 230000 },
+      ],
+    },
+    // Data for categories in Delhi can be added here
+  },
+  bangalore: {
+    "all-categories": {
+      totalRevenue: 820000,
+      totalRevenueChange: 18.7,
+      conversionRate: 3.5,
+      conversionRateChange: 2.8,
+      activeBuyers: 650,
+      activeBuyersChange: 175.6,
+      newSellers: 3200,
+      newSellersChange: 18.5,
+      salesOverTime: [
+        { month: "Jan", sales: 1000, revenue: 400000 },
+        { month: "Feb", sales: 1100, revenue: 450000 },
+        { month: "Mar", sales: 1200, revenue: 550000 },
+        { month: "Apr", sales: 1300, revenue: 650000 },
+        { month: "May", sales: 1400, revenue: 750000 },
+        { month: "Jun", sales: 1500, revenue: 820000 },
+      ],
+      salesByRegion: [
+        { region: "Electronics", sales: 350000 },
+        { region: "Fashion", sales: 280000 },
+        { region: "Home Goods", sales: 190000 },
+      ],
+    },
+    // Data for categories in Bangalore can be added here
+  },
+  chennai: {
+    "all-categories": {
+      totalRevenue: 450000,
+      totalRevenueChange: 14.2,
+      conversionRate: 2.2,
+      conversionRateChange: 1.8,
+      activeBuyers: 300,
+      activeBuyersChange: 130.2,
+      newSellers: 1800,
+      newSellersChange: 16.8,
+      salesOverTime: [
+        { month: "Jan", sales: 600, revenue: 200000 },
+        { month: "Feb", sales: 650, revenue: 250000 },
+        { month: "Mar", sales: 700, revenue: 300000 },
+        { month: "Apr", sales: 750, revenue: 350000 },
+        { month: "May", sales: 800, revenue: 400000 },
+        { month: "Jun", sales: 850, revenue: 450000 },
+      ],
+      salesByRegion: [
+        { region: "Electronics", sales: 180000 },
+        { region: "Fashion", sales: 150000 },
+        { region: "Home Goods", sales: 120000 },
+      ],
+    },
+    // Data for categories in Chennai can be added here
+  },
+}
 
 const chartConfig: ChartConfig = {
   sales: {
@@ -62,9 +258,28 @@ const chartConfig: ChartConfig = {
     label: "Revenue (₹)",
     color: "hsl(var(--chart-2))",
   },
+  category: {
+      label: "Sales (₹)",
+      color: "hsl(var(--chart-1))"
+  }
 }
 
+const formatCurrency = (value: number) =>
+  `₹${new Intl.NumberFormat("en-IN").format(value)}`
+
+const formatCompactCurrency = (value: number) =>
+  `₹${new Intl.NumberFormat("en-IN", {
+    notation: "compact",
+    compactDisplay: "short",
+  }).format(value)}`
+
 export default function DashboardPage() {
+  const [region, setRegion] = React.useState("india")
+  const [category, setCategory] = React.useState("all-categories")
+  
+  const data = allData[region]?.[category] || allData.india['all-categories'];
+  const isRegionView = region !== "india" && category === "all-categories"
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -72,7 +287,7 @@ export default function DashboardPage() {
           Marketplace Dashboard
         </h1>
         <div className="flex gap-2">
-          <Select defaultValue="india">
+          <Select value={region} onValueChange={setRegion}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Select Region" />
             </SelectTrigger>
@@ -84,7 +299,7 @@ export default function DashboardPage() {
               <SelectItem value="chennai">Chennai</SelectItem>
             </SelectContent>
           </Select>
-          <Select defaultValue="all-categories">
+          <Select value={category} onValueChange={setCategory} disabled={region === 'india'}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Select Category" />
             </SelectTrigger>
@@ -105,8 +320,8 @@ export default function DashboardPage() {
             <IndianRupee className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">₹3,769,231.89</div>
-            <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+            <div className="text-2xl font-bold">{formatCurrency(data.totalRevenue)}</div>
+            <p className="text-xs text-muted-foreground">+{data.totalRevenueChange}% from last month</p>
           </CardContent>
         </Card>
         <Card>
@@ -115,8 +330,8 @@ export default function DashboardPage() {
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">2.5%</div>
-            <p className="text-xs text-muted-foreground">+2.0% from last month</p>
+            <div className="text-2xl font-bold">{data.conversionRate}%</div>
+            <p className="text-xs text-muted-foreground">+{data.conversionRateChange}% from last month</p>
           </CardContent>
         </Card>
         <Card>
@@ -125,8 +340,8 @@ export default function DashboardPage() {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+2350</div>
-            <p className="text-xs text-muted-foreground">+180.1% from last month</p>
+            <div className="text-2xl font-bold">+{data.activeBuyers}</div>
+            <p className="text-xs text-muted-foreground">+{data.activeBuyersChange}% from last month</p>
           </CardContent>
         </Card>
         <Card>
@@ -137,9 +352,9 @@ export default function DashboardPage() {
               <ShoppingCart className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">+12,234</div>
+              <div className="text-2xl font-bold">+{data.newSellers}</div>
               <p className="text-xs text-muted-foreground">
-                +19% from last month
+                +{data.newSellersChange}% from last month
               </p>
             </CardContent>
           </Card>
@@ -153,7 +368,7 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[300px] w-full">
-              <LineChart data={salesData}>
+              <LineChart data={data.salesOverTime}>
                 <CartesianGrid vertical={false} />
                 <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
                  <YAxis
@@ -164,18 +379,13 @@ export default function DashboardPage() {
                   <YAxis
                     yAxisId="right"
                     orientation="right"
-                    tickFormatter={(value) =>
-                      `₹${new Intl.NumberFormat("en-IN", {
-                        notation: "compact",
-                        compactDisplay: "short",
-                      }).format(value as number)}`
-                    }
+                    tickFormatter={formatCompactCurrency}
                   />
                 <Tooltip
                     content={<ChartTooltipContent
                         formatter={(value, name) => {
                           if (name === "revenue") {
-                            return `₹${new Intl.NumberFormat("en-IN").format(value as number)}`
+                            return formatCurrency(value as number)
                           }
                           return `${value} units`
                         }}
@@ -204,31 +414,22 @@ export default function DashboardPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Sales by Region</CardTitle>
+            <CardTitle>{isRegionView ? "Sales by Category" : "Sales by Region"}</CardTitle>
             <CardDescription>Current Month</CardDescription>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[300px] w-full">
-              <BarChart data={salesByRegionData}>
+              <BarChart data={data.salesByRegion}>
                 <CartesianGrid vertical={false} />
                 <XAxis dataKey="region" tickLine={false} axisLine={false} tickMargin={8} />
-                <YAxis
-                    tickFormatter={(value) =>
-                        `₹${new Intl.NumberFormat("en-IN", {
-                        notation: "compact",
-                        compactDisplay: "short",
-                        }).format(value as number)}`
-                    }
-                />
+                <YAxis tickFormatter={formatCompactCurrency} />
                 <Tooltip
                     cursor={false}
                     content={<ChartTooltipContent
-                        formatter={(value) =>
-                            `₹${new Intl.NumberFormat("en-IN").format(value as number)}`
-                        }
+                        formatter={(value) => formatCurrency(value as number)}
                     />}
                 />
-                <Bar dataKey="sales" fill="var(--color-sales)" radius={4} />
+                <Bar dataKey="sales" fill="var(--color-category)" radius={4} />
               </BarChart>
             </ChartContainer>
           </CardContent>
@@ -237,3 +438,5 @@ export default function DashboardPage() {
     </div>
   )
 }
+
+    
