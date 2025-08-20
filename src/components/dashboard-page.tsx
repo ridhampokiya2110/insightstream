@@ -742,10 +742,18 @@ export default function DashboardPage() {
             <CardDescription>Current Month</CardDescription>
           </CardHeader>
           <CardContent>
-            <ChartContainer config={chartConfig} className="h-[300px] w-full">
-              <BarChart data={barChartData}>
+            <ChartContainer config={chartConfig} className="h-[350px] w-full">
+              <BarChart data={barChartData} margin={{ bottom: 75 }}>
                 <CartesianGrid vertical={false} />
-                <XAxis dataKey={barChartDataKey} tickLine={false} axisLine={false} tickMargin={8} />
+                <XAxis 
+                  dataKey={barChartDataKey} 
+                  tickLine={false} 
+                  axisLine={false} 
+                  tickMargin={8} 
+                  angle={-45}
+                  textAnchor="end"
+                  interval={0}
+                />
                 <YAxis tickFormatter={formatCompactCurrency} />
                 <Tooltip
                     cursor={false}
