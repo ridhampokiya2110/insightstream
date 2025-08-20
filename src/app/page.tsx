@@ -61,11 +61,13 @@ export default function InsightStreamApp() {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             className="size-8 text-primary transition-all group-data-[collapsible=icon]:size-6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path
-              fill="currentColor"
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
-            />
+            <path d="M2 12h5l2 -5l4 10l2 -5h5" />
           </svg>
 
           <span className="font-bold text-lg text-sidebar-foreground transition-opacity group-data-[collapsible=icon]:opacity-0">
@@ -112,11 +114,11 @@ export default function InsightStreamApp() {
               <div className="flex cursor-pointer items-center gap-2 rounded-md p-2 hover:bg-sidebar-accent group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:size-10 group-data-[collapsible=icon]:p-0">
                 <Avatar className="size-8">
                   <AvatarImage src="https://placehold.co/40x40.png" alt="User" data-ai-hint="person avatar" />
-                  <AvatarFallback>PM</AvatarFallback>
+                  <AvatarFallback>RM</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col text-sm group-data-[collapsible=icon]:hidden">
                   <span className="font-semibold text-sidebar-foreground">
-                    Priya M.
+                    Ridham M.
                   </span>
                   <span className="text-sidebar-foreground/70">
                     Product Manager
