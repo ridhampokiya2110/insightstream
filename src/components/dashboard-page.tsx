@@ -148,6 +148,30 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { city: "Nashik", sales: 300000 },
       ],
     },
+    fashion: {
+      totalRevenue: 3500000,
+      totalRevenueChange: 22.3,
+      conversionRate: 4.8,
+      conversionRateChange: 2.3,
+      activeBuyers: 3000,
+      activeBuyersChange: 180.1,
+      newSellers: 12000,
+      newSellersChange: 25.4,
+      salesOverTime: [
+          { month: "Jan", sales: 4000, revenue: 2000000 },
+          { month: "Feb", sales: 4200, revenue: 2300000 },
+          { month: "Mar", sales: 4500, revenue: 2600000 },
+          { month: "Apr", sales: 4800, revenue: 2900000 },
+          { month: "May", sales: 5000, revenue: 3200000 },
+          { month: "Jun", sales: 5200, revenue: 3500000 },
+      ],
+      salesByCity: [
+          { city: "Mumbai", sales: 1800000 },
+          { city: "Pune", sales: 1000000 },
+          { city: "Nagpur", sales: 400000 },
+          { city: "Nashik", sales: 300000 },
+      ],
+    },
     "home-goods": {
         totalRevenue: 2300000,
         totalRevenueChange: 18.5,
@@ -226,6 +250,54 @@ const allData: Record<string, Record<string, DashboardData>> = {
           { city: "Mangaluru", sales: 400000 },
           { city: "Hubballi", sales: 200000 },
         ],
+    },
+    fashion: {
+        totalRevenue: 2800000,
+        totalRevenueChange: 21.5,
+        conversionRate: 4.2,
+        conversionRateChange: 2.4,
+        activeBuyers: 2500,
+        activeBuyersChange: 175.6,
+        newSellers: 10000,
+        newSellersChange: 24.1,
+        salesOverTime: [
+          { month: "Jan", sales: 3000, revenue: 1500000 },
+          { month: "Feb", sales: 3200, revenue: 1700000 },
+          { month: "Mar", sales: 3500, revenue: 2000000 },
+          { month: "Apr", sales: 3800, revenue: 2300000 },
+          { month: "May", sales: 4000, revenue: 2500000 },
+          { month: "Jun", sales: 4100, revenue: 2800000 },
+        ],
+        salesByCity: [
+          { city: "Bengaluru", sales: 1800000 },
+          { city: "Mysuru", sales: 500000 },
+          { city: "Mangaluru", sales: 300000 },
+          { city: "Hubballi", sales: 200000 },
+        ],
+    },
+    "home-goods": {
+        totalRevenue: 1600000,
+        totalRevenueChange: 18.2,
+        conversionRate: 3.5,
+        conversionRateChange: 1.9,
+        activeBuyers: 1800,
+        activeBuyersChange: 160.3,
+        newSellers: 8000,
+        newSellersChange: 21.8,
+        salesOverTime: [
+          { month: "Jan", sales: 2000, revenue: 800000 },
+          { month: "Feb", sales: 2200, revenue: 900000 },
+          { month: "Mar", sales: 2500, revenue: 1100000 },
+          { month: "Apr", sales: 2800, revenue: 1300000 },
+          { month: "May", sales: 3000, revenue: 1450000 },
+          { month: "Jun", sales: 3100, revenue: 1600000 },
+        ],
+        salesByCity: [
+          { city: "Bengaluru", sales: 1000000 },
+          { city: "Mysuru", sales: 300000 },
+          { city: "Mangaluru", sales: 200000 },
+          { city: "Hubballi", sales: 100000 },
+        ],
     }
   },
   delhi: {
@@ -257,6 +329,29 @@ const allData: Record<string, Record<string, DashboardData>> = {
             { category: "Home Goods", sales: 1800000 },
         ]
     },
+    electronics: {
+      totalRevenue: 3200000,
+      totalRevenueChange: 24.1,
+      conversionRate: 5.5,
+      conversionRateChange: 2.8,
+      activeBuyers: 2800,
+      activeBuyersChange: 195.2,
+      newSellers: 13000,
+      newSellersChange: 27.8,
+      salesOverTime: [
+        { month: "Jan", sales: 3800, revenue: 1600000 },
+        { month: "Feb", sales: 4000, revenue: 1900000 },
+        { month: "Mar", sales: 4200, revenue: 2200000 },
+        { month: "Apr", sales: 4500, revenue: 2500000 },
+        { month: "May", sales: 4800, revenue: 2900000 },
+        { month: "Jun", sales: 5000, revenue: 3200000 },
+      ],
+      salesByCity: [
+        { city: "New Delhi", sales: 2000000 },
+        { city: "Noida", sales: 700000 },
+        { city: "Gurugram", sales: 500000 },
+      ],
+    },
     fashion: {
         totalRevenue: 2500000,
         totalRevenueChange: 19.2,
@@ -278,6 +373,29 @@ const allData: Record<string, Record<string, DashboardData>> = {
           { city: "New Delhi", sales: 1500000 },
           { city: "Noida", sales: 600000 },
           { city: "Gurugram", sales: 400000 },
+        ],
+    },
+    "home-goods": {
+        totalRevenue: 1800000,
+        totalRevenueChange: 17.5,
+        conversionRate: 3.3,
+        conversionRateChange: 1.8,
+        activeBuyers: 2200,
+        activeBuyersChange: 165.7,
+        newSellers: 9000,
+        newSellersChange: 20.3,
+        salesOverTime: [
+          { month: "Jan", sales: 2200, revenue: 800000 },
+          { month: "Feb", sales: 2400, revenue: 950000 },
+          { month: "Mar", sales: 2600, revenue: 1100000 },
+          { month: "Apr", sales: 2800, revenue: 1300000 },
+          { month: "May", sales: 3000, revenue: 1550000 },
+          { month: "Jun", sales: 3100, revenue: 1800000 },
+        ],
+        salesByCity: [
+          { city: "New Delhi", sales: 1100000 },
+          { city: "Noida", sales: 400000 },
+          { city: "Gurugram", sales: 300000 },
         ],
     }
   },
@@ -310,6 +428,54 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { category: "Fashion", sales: 2200000 },
         { category: "Home Goods", sales: 1900000 },
       ]
+    },
+    electronics: {
+      totalRevenue: 2800000,
+      totalRevenueChange: 21.3,
+      conversionRate: 4.5,
+      conversionRateChange: 2.1,
+      activeBuyers: 2500,
+      activeBuyersChange: 175.4,
+      newSellers: 12000,
+      newSellersChange: 24.8,
+      salesOverTime: [
+        { month: "Jan", sales: 3500, revenue: 1400000 },
+        { month: "Feb", sales: 3700, revenue: 1600000 },
+        { month: "Mar", sales: 4000, revenue: 1900000 },
+        { month: "Apr", sales: 4200, revenue: 2200000 },
+        { month: "May", sales: 4500, revenue: 2500000 },
+        { month: "Jun", sales: 4600, revenue: 2800000 },
+      ],
+      salesByCity: [
+        { city: "Chennai", sales: 1500000 },
+        { city: "Coimbatore", sales: 800000 },
+        { city: "Madurai", sales: 300000 },
+        { city: "Tiruchirappalli", sales: 200000 },
+      ],
+    },
+    fashion: {
+      totalRevenue: 2200000,
+      totalRevenueChange: 18.8,
+      conversionRate: 3.9,
+      conversionRateChange: 1.6,
+      activeBuyers: 2000,
+      activeBuyersChange: 160.2,
+      newSellers: 10000,
+      newSellersChange: 21.5,
+      salesOverTime: [
+        { month: "Jan", sales: 2800, revenue: 1000000 },
+        { month: "Feb", sales: 3000, revenue: 1200000 },
+        { month: "Mar", sales: 3200, revenue: 1400000 },
+        { month: "Apr", sales: 3400, revenue: 1600000 },
+        { month: "May", sales: 3600, revenue: 1900000 },
+        { month: "Jun", sales: 3800, revenue: 2200000 },
+      ],
+      salesByCity: [
+        { city: "Chennai", sales: 1100000 },
+        { city: "Coimbatore", sales: 700000 },
+        { city: "Madurai", sales: 300000 },
+        { city: "Tiruchirappalli", sales: 100000 },
+      ],
     },
     "home-goods": {
       totalRevenue: 1900000,
@@ -414,6 +580,30 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { city: "Rajkot", sales: 100000 },
       ],
     },
+    "home-goods": {
+      totalRevenue: 1300000,
+      totalRevenueChange: 16.9,
+      conversionRate: 3.2,
+      conversionRateChange: 1.3,
+      activeBuyers: 1500,
+      activeBuyersChange: 145.8,
+      newSellers: 7000,
+      newSellersChange: 20.1,
+      salesOverTime: [
+        { month: "Jan", sales: 1800, revenue: 500000 },
+        { month: "Feb", sales: 1900, revenue: 600000 },
+        { month: "Mar", sales: 2000, revenue: 750000 },
+        { month: "Apr", sales: 2200, revenue: 900000 },
+        { month: "May", sales: 2400, revenue: 1100000 },
+        { month: "Jun", sales: 2500, revenue: 1300000 },
+      ],
+      salesByCity: [
+        { city: "Ahmedabad", sales: 600000 },
+        { city: "Surat", sales: 350000 },
+        { city: "Vadodara", sales: 200000 },
+        { city: "Rajkot", sales: 150000 },
+      ],
+    }
   },
   rajasthan: {
     "all-categories": {
@@ -444,6 +634,54 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { category: "Fashion", sales: 900000 },
         { category: "Electronics", sales: 790123 },
       ]
+    },
+    electronics: {
+      totalRevenue: 790123,
+      totalRevenueChange: 18.5,
+      conversionRate: 3.5,
+      conversionRateChange: 1.4,
+      activeBuyers: 1200,
+      activeBuyersChange: 140.2,
+      newSellers: 6000,
+      newSellersChange: 19.5,
+      salesOverTime: [
+        { month: "Jan", sales: 1000, revenue: 300000 },
+        { month: "Feb", sales: 1100, revenue: 350000 },
+        { month: "Mar", sales: 1200, revenue: 420000 },
+        { month: "Apr", sales: 1300, revenue: 500000 },
+        { month: "May", sales: 1400, revenue: 650000 },
+        { month: "Jun", sales: 1500, revenue: 790123 },
+      ],
+      salesByCity: [
+        { city: "Jaipur", sales: 400000 },
+        { city: "Jodhpur", sales: 200000 },
+        { city: "Udaipur", sales: 120000 },
+        { city: "Kota", sales: 70123 },
+      ],
+    },
+    fashion: {
+      totalRevenue: 900000,
+      totalRevenueChange: 17.1,
+      conversionRate: 2.8,
+      conversionRateChange: 1.1,
+      activeBuyers: 1300,
+      activeBuyersChange: 138.7,
+      newSellers: 5000,
+      newSellersChange: 18.2,
+      salesOverTime: [
+        { month: "Jan", sales: 1200, revenue: 400000 },
+        { month: "Feb", sales: 1300, revenue: 450000 },
+        { month: "Mar", sales: 1400, revenue: 550000 },
+        { month: "Apr", sales: 1500, revenue: 650000 },
+        { month: "May", sales: 1600, revenue: 750000 },
+        { month: "Jun", sales: 1700, revenue: 900000 },
+      ],
+      salesByCity: [
+        { city: "Jaipur", sales: 450000 },
+        { city: "Jodhpur", sales: 250000 },
+        { city: "Udaipur", sales: 150000 },
+        { city: "Kota", sales: 50000 },
+      ],
     },
     "home-goods": {
       totalRevenue: 1100000,
@@ -523,6 +761,54 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { city: "Durgapur", sales: 250000 },
         { city: "Asansol", sales: 200000 },
       ],
+    },
+    fashion: {
+      totalRevenue: 1300000,
+      totalRevenueChange: 19.4,
+      conversionRate: 3.7,
+      conversionRateChange: 1.6,
+      activeBuyers: 1800,
+      activeBuyersChange: 150.1,
+      newSellers: 8000,
+      newSellersChange: 21.2,
+      salesOverTime: [
+        { month: "Jan", sales: 2000, revenue: 600000 },
+        { month: "Feb", sales: 2200, revenue: 700000 },
+        { month: "Mar", sales: 2400, revenue: 850000 },
+        { month: "Apr", sales: 2500, revenue: 1000000 },
+        { month: "May", sales: 2600, revenue: 1150000 },
+        { month: "Jun", sales: 2700, revenue: 1300000 },
+      ],
+      salesByCity: [
+        { city: "Kolkata", sales: 650000 },
+        { city: "Howrah", sales: 350000 },
+        { city: "Durgapur", sales: 200000 },
+        { city: "Asansol", sales: 100000 },
+      ],
+    },
+    "home-goods": {
+      totalRevenue: 1000000,
+      totalRevenueChange: 17.8,
+      conversionRate: 2.9,
+      conversionRateChange: 1.4,
+      activeBuyers: 1500,
+      activeBuyersChange: 145.3,
+      newSellers: 7000,
+      newSellersChange: 19.8,
+      salesOverTime: [
+        { month: "Jan", sales: 1700, revenue: 450000 },
+        { month: "Feb", sales: 1800, revenue: 550000 },
+        { month: "Mar", sales: 1900, revenue: 650000 },
+        { month: "Apr", sales: 2000, revenue: 750000 },
+        { month: "May", sales: 2100, revenue: 880000 },
+        { month: "Jun", sales: 2200, revenue: 1000000 },
+      ],
+      salesByCity: [
+        { city: "Kolkata", sales: 500000 },
+        { city: "Howrah", sales: 250000 },
+        { city: "Durgapur", sales: 150000 },
+        { city: "Asansol", sales: 100000 },
+      ],
     }
   },
   "uttar-pradesh": {
@@ -578,6 +864,54 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { city: "Agra", sales: 350000 },
         { city: "Varanasi", sales: 250000 },
       ],
+    },
+    electronics: {
+      totalRevenue: 1800000,
+      totalRevenueChange: 22.1,
+      conversionRate: 4.1,
+      conversionRateChange: 2.0,
+      activeBuyers: 2200,
+      activeBuyersChange: 165.9,
+      newSellers: 10000,
+      newSellersChange: 25.3,
+      salesOverTime: [
+        { month: "Jan", sales: 2800, revenue: 800000 },
+        { month: "Feb", sales: 3000, revenue: 950000 },
+        { month: "Mar", sales: 3200, revenue: 1100000 },
+        { month: "Apr", sales: 3400, revenue: 1300000 },
+        { month: "May", sales: 3600, revenue: 1550000 },
+        { month: "Jun", sales: 3700, revenue: 1800000 },
+      ],
+      salesByCity: [
+        { city: "Lucknow", sales: 800000 },
+        { city: "Kanpur", sales: 500000 },
+        { city: "Agra", sales: 300000 },
+        { city: "Varanasi", sales: 200000 },
+      ],
+    },
+    "home-goods": {
+      totalRevenue: 1500000,
+      totalRevenueChange: 19.3,
+      conversionRate: 3.6,
+      conversionRateChange: 1.7,
+      activeBuyers: 1800,
+      activeBuyersChange: 158.1,
+      newSellers: 8000,
+      newSellersChange: 22.4,
+      salesOverTime: [
+        { month: "Jan", sales: 2000, revenue: 600000 },
+        { month: "Feb", sales: 2200, revenue: 700000 },
+        { month: "Mar", sales: 2400, revenue: 850000 },
+        { month: "Apr", sales: 2500, revenue: 1000000 },
+        { month: "May", sales: 2600, revenue: 1200000 },
+        { month: "Jun", sales: 2700, revenue: 1500000 },
+      ],
+      salesByCity: [
+        { city: "Lucknow", sales: 700000 },
+        { city: "Kanpur", sales: 400000 },
+        { city: "Agra", sales: 250000 },
+        { city: "Varanasi", sales: 150000 },
+      ],
     }
   }
 };
@@ -623,7 +957,7 @@ export default function DashboardPage() {
   const data = allData[state]?.[category] || allData[state]?.["all-categories"] || allData["all-india"]['all-categories'];
   const isAllIndiaView = state === "all-india";
   
-  const barChartData = data.salesByCity
+  const barChartData = data.salesByCity;
 
   const barChartDataKey = "city";
   
@@ -631,7 +965,7 @@ export default function DashboardPage() {
     const stateName = state.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     if (isAllIndiaView) return "Sales by State";
     if (category === "all-categories") return `Sales by City in ${stateName}`;
-    const categoryName = category.charAt(0).toUpperCase() + category.slice(1).replace("-"," ");
+    const categoryName = category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     return `Sales for ${categoryName} by City in ${stateName}`;
   }
 
