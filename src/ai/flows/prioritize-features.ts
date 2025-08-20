@@ -49,26 +49,21 @@ const prompt = ai.definePrompt({
   name: 'prioritizeFeaturesPrompt',
   input: {schema: PrioritizeFeaturesInputSchema},
   output: {schema: PrioritizeFeaturesOutputSchema},
-  prompt: `You are an expert product manager specializing in feature prioritization using the RICE framework.
-  Your task is to analyze a list of features, calculate a RICE score for each, and provide a clear rationale for the prioritization.
+  prompt: `You are an expert product manager. Prioritize the following features based on the RICE framework (Reach, Impact, Confidence, Effort) and the provided key business metrics.
 
-  The key business metrics to focus on are: {{{keyMetrics}}}
+Key Metrics: {{{keyMetrics}}}
 
-  Analyze the following features:
-  {{#each features}}
-  - Feature: {{{name}}}
-    - Description: {{{description}}}
-    - Reach: {{{reach}}} users per month
-    - Impact: {{{impact}}} (Scale of 1-10)
-    - Confidence: {{{confidence}}} (Scale of 1-10)
-    - Effort: {{{effort}}} (Scale of 1-10, person-months)
-  {{/each}}
+Features:
+{{#each features}}
+- Name: {{{name}}}
+  - Description: {{{description}}}
+  - Reach: {{{reach}}}
+  - Impact: {{{impact}}}/10
+  - Confidence: {{{confidence}}}/10
+  - Effort: {{{effort}}}/10
+{{/each}}
 
-  Instructions:
-  1.  For each feature, calculate a priority score. A standard RICE score is (Reach * Impact * Confidence) / Effort, but you can use your expert judgment to adjust the final score.
-  2.  Provide a concise rationale for each feature's score, explaining how it aligns with the key business metrics.
-  3.  Return the list of features sorted by the highest priority score first.
-  `,
+Calculate a priority score for each feature. Provide a brief rationale for your scoring. Return a sorted list from highest to lowest priority.`,
 });
 
 const prioritizeFeaturesFlow = ai.defineFlow(
