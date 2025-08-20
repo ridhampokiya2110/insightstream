@@ -45,6 +45,11 @@ type RegionSales = {
   sales: number
 }
 
+type LocalAreaSales = {
+    area: string
+    sales: number
+}
+
 type DashboardData = {
   totalRevenue: number
   totalRevenueChange: number
@@ -56,6 +61,7 @@ type DashboardData = {
   newSellersChange: number
   salesOverTime: DataPoint[]
   salesByRegion: RegionSales[]
+  salesByLocalArea?: LocalAreaSales[]
 }
 
 const allData: Record<string, Record<string, DashboardData>> = {
@@ -110,6 +116,13 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { region: "Fashion", sales: 450000 },
         { region: "Home Goods", sales: 300000 },
       ],
+      salesByLocalArea: [
+          { area: "Borivali", sales: 350000 },
+          { area: "Andheri", sales: 300000 },
+          { area: "Dadar", sales: 250000 },
+          { area: "Thane", sales: 200000 },
+          { area: "Colaba", sales: 150000 },
+      ]
     },
     electronics: {
       totalRevenue: 500000,
@@ -192,6 +205,13 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { region: "Fashion", sales: 350000 },
         { region: "Home Goods", sales: 230000 },
       ],
+       salesByLocalArea: [
+          { area: "Connaught Place", sales: 280000 },
+          { area: "Karol Bagh", sales: 220000 },
+          { area: "Chandni Chowk", sales: 180000 },
+          { area: "Lajpat Nagar", sales: 150000 },
+          { area: "Nehru Place", sales: 150000 },
+      ]
     },
     // Data for categories in Delhi can be added here
   },
@@ -218,6 +238,13 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { region: "Fashion", sales: 280000 },
         { region: "Home Goods", sales: 190000 },
       ],
+      salesByLocalArea: [
+          { area: "Koramangala", sales: 250000 },
+          { area: "Indiranagar", sales: 200000 },
+          { area: "Jayanagar", sales: 150000 },
+          { area: "Whitefield", sales: 120000 },
+          { area: "HSR Layout", sales: 100000 },
+      ]
     },
     // Data for categories in Bangalore can be added here
   },
@@ -244,6 +271,13 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { region: "Fashion", sales: 150000 },
         { region: "Home Goods", sales: 120000 },
       ],
+      salesByLocalArea: [
+          { area: "T. Nagar", sales: 150000 },
+          { area: "Adyar", sales: 100000 },
+          { area: "Velachery", sales: 80000 },
+          { area: "Anna Nagar", sales: 70000 },
+          { area: "Mylapore", sales: 50000 },
+      ]
     },
     // Data for categories in Chennai can be added here
   },
@@ -261,6 +295,10 @@ const chartConfig: ChartConfig = {
   category: {
       label: "Sales (₹)",
       color: "hsl(var(--chart-1))"
+  },
+  localArea: {
+      label: "Sales (₹)",
+      color: "hsl(var(--chart-2))"
   }
 }
 
@@ -277,8 +315,32 @@ export default function DashboardPage() {
   const [region, setRegion] = React.useState("india")
   const [category, setCategory] = React.useState("all-categories")
   
+  const handleRegionChange = (newRegion: string) => {
+    setRegion(newRegion);
+    setCategory("all-categories");
+  };
+  
   const data = allData[region]?.[category] || allData.india['all-categories'];
-  const isRegionView = region !== "india" && category === "all-categories"
+  const isAllIndiaView = region === "india";
+  const isCityAllCategoriesView = region !== "india" && category === "all-categories";
+  
+  const barChartData = isCityAllCategoriesView 
+    ? data.salesByLocalArea?.map(item => ({ ...item, region: item.area }))
+    : data.salesByRegion;
+
+  const barChartDataKey = isCityAllCategoriesView ? "area" : "region";
+
+  const barChartFill = isCityAllCategoriesView ? "var(--color-localArea)" : "var(--color-category)";
+
+  const getBarChartTitle = () => {
+    if (isAllIndiaView) return "Sales by Region";
+    if (isCityAllCategoriesView) {
+      const regionName = region.charAt(0).toUpperCase() + region.slice(1);
+      return `Sales by Local Area in ${regionName}`;
+    }
+    return "Sales by Category";
+  }
+
 
   return (
     <div className="flex flex-col gap-6">
@@ -287,7 +349,7 @@ export default function DashboardPage() {
           Marketplace Dashboard
         </h1>
         <div className="flex gap-2">
-          <Select value={region} onValueChange={setRegion}>
+          <Select value={region} onValueChange={handleRegionChange}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Select Region" />
             </SelectTrigger>
@@ -414,14 +476,14 @@ export default function DashboardPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>{isRegionView ? "Sales by Category" : "Sales by Region"}</CardTitle>
+            <CardTitle>{getBarChartTitle()}</CardTitle>
             <CardDescription>Current Month</CardDescription>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[300px] w-full">
-              <BarChart data={data.salesByRegion}>
+              <BarChart data={barChartData}>
                 <CartesianGrid vertical={false} />
-                <XAxis dataKey="region" tickLine={false} axisLine={false} tickMargin={8} />
+                <XAxis dataKey={barChartDataKey} tickLine={false} axisLine={false} tickMargin={8} />
                 <YAxis tickFormatter={formatCompactCurrency} />
                 <Tooltip
                     cursor={false}
@@ -429,7 +491,7 @@ export default function DashboardPage() {
                         formatter={(value) => formatCurrency(value as number)}
                     />}
                 />
-                <Bar dataKey="sales" fill="var(--color-category)" radius={4} />
+                <Bar dataKey="sales" fill={barChartFill} radius={4} />
               </BarChart>
             </ChartContainer>
           </CardContent>
