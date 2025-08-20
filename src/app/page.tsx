@@ -67,7 +67,11 @@ export default function InsightStreamApp() {
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <path d="M2 12h5l2 -5l4 10l2 -5h5" />
+            <path d="M3 6.2c4.5 4.5 4.5 11.8 0 16.3" />
+            <path d="M7 2.2c6 6 6 15.8 0 21.8" />
+            <path d="M11 6.2c-4.5 4.5 -4.5 11.8 0 16.3" />
+            <path d="M15 2.2c-6 6 -6 15.8 0 21.8" />
+            <path d="M19 6.2c-4.5 4.5 -4.5 11.8 0 16.3" />
           </svg>
 
           <span className="font-bold text-lg text-sidebar-foreground transition-opacity group-data-[collapsible=icon]:opacity-0">
