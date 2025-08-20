@@ -1,7 +1,8 @@
+
 "use client"
 
 import * as React from "react"
-import { DollarSign, TrendingUp, Users, ArrowUp, ShoppingCart } from "lucide-react"
+import { IndianRupee, TrendingUp, Users, ArrowUp, ShoppingCart } from "lucide-react"
 import {
   Bar,
   BarChart,
@@ -43,13 +44,14 @@ const salesData = [
 ]
 
 const salesByRegionData = [
-  { region: "NA", sales: 3500 },
-  { region: "EU", sales: 2800 },
-  { region: "APAC", sales: 2200 },
-  { region: "LATAM", sales: 1800 },
-  { region: "SEA", sales: 900 },
-  { region: "Other", sales: 500 },
+    { region: "Mumbai", sales: 350000 },
+    { region: "Delhi", sales: 280000 },
+    { region: "Bangalore", sales: 220000 },
+    { region: "Chennai", sales: 180000 },
+    { region: "Kolkata", sales: 90000 },
+    { region: "Other", sales: 50000 },
 ]
+
 
 const chartConfig: ChartConfig = {
   sales: {
@@ -70,16 +72,16 @@ export default function DashboardPage() {
           Marketplace Dashboard
         </h1>
         <div className="flex gap-2">
-          <Select defaultValue="all-regions">
+          <Select defaultValue="india">
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Select Region" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all-regions">All Regions</SelectItem>
-              <SelectItem value="na">North America</SelectItem>
-              <SelectItem value="eu">Europe</SelectItem>
-              <SelectItem value="apac">APAC</SelectItem>
-              <SelectItem value="sea">Southeast Asia</SelectItem>
+              <SelectItem value="india">India</SelectItem>
+              <SelectItem value="mumbai">Mumbai</SelectItem>
+              <SelectItem value="delhi">Delhi</SelectItem>
+              <SelectItem value="bangalore">Bangalore</SelectItem>
+              <SelectItem value="chennai">Chennai</SelectItem>
             </SelectContent>
           </Select>
           <Select defaultValue="all-categories">
@@ -100,10 +102,10 @@ export default function DashboardPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Sales</CardTitle>
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
+            <IndianRupee className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">$45,231.89</div>
+            <div className="text-2xl font-bold">₹3,769,231.89</div>
             <p className="text-xs text-muted-foreground">+20.1% from last month</p>
           </CardContent>
         </Card>
@@ -184,8 +186,22 @@ export default function DashboardPage() {
               <BarChart data={salesByRegionData}>
                 <CartesianGrid vertical={false} />
                 <XAxis dataKey="region" tickLine={false} axisLine={false} tickMargin={8} />
-                <YAxis />
-                <Tooltip cursor={false} content={<ChartTooltipContent />} />
+                <YAxis
+                    tickFormatter={(value) =>
+                        `₹${new Intl.NumberFormat("en-IN", {
+                        notation: "compact",
+                        compactDisplay: "short",
+                        }).format(value as number)}`
+                    }
+                />
+                <Tooltip
+                    cursor={false}
+                    content={<ChartTooltipContent
+                        formatter={(value) =>
+                            `₹${new Intl.NumberFormat("en-IN").format(value as number)}`
+                        }
+                    />}
+                />
                 <Bar dataKey="sales" fill="var(--color-sales)" radius={4} />
               </BarChart>
             </ChartContainer>
