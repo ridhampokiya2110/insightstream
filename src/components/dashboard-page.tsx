@@ -312,6 +312,226 @@ const allData: Record<string, Record<string, DashboardData>> = {
         { city: "Tiruchirappalli", sales: 200000 },
       ],
     }
+  },
+  gujarat: {
+    "all-categories": {
+      totalRevenue: 3800000,
+      totalRevenueChange: 18.2,
+      conversionRate: 2.9,
+      conversionRateChange: 1.5,
+      activeBuyers: 4500,
+      activeBuyersChange: 150.1,
+      newSellers: 22000,
+      newSellersChange: 21.9,
+      salesOverTime: [
+        { month: "Jan", sales: 6000, revenue: 2000000 },
+        { month: "Feb", sales: 6200, revenue: 2300000 },
+        { month: "Mar", sales: 6500, revenue: 2600000 },
+        { month: "Apr", sales: 6800, revenue: 3000000 },
+        { month: "May", sales: 7000, revenue: 3400000 },
+        { month: "Jun", sales: 7200, revenue: 3800000 },
+      ],
+      salesByCity: [
+        { city: "Ahmedabad", sales: 1800000 },
+        { city: "Surat", sales: 1000000 },
+        { city: "Vadodara", sales: 600000 },
+        { city: "Rajkot", sales: 400000 },
+      ],
+      salesByCategory: [
+        { category: "Fashion", sales: 1500000 },
+        { category: "Home Goods", sales: 1300000 },
+        { category: "Electronics", sales: 1000000 },
+      ]
+    },
+    fashion: {
+      totalRevenue: 1500000,
+      totalRevenueChange: 20.5,
+      conversionRate: 4.2,
+      conversionRateChange: 1.8,
+      activeBuyers: 2000,
+      activeBuyersChange: 160.3,
+      newSellers: 8000,
+      newSellersChange: 25.1,
+      salesOverTime: [
+        { month: "Jan", sales: 2000, revenue: 600000 },
+        { month: "Feb", sales: 2100, revenue: 700000 },
+        { month: "Mar", sales: 2200, revenue: 850000 },
+        { month: "Apr", sales: 2400, revenue: 1000000 },
+        { month: "May", sales: 2500, revenue: 1200000 },
+        { month: "Jun", sales: 2600, revenue: 1500000 },
+      ],
+      salesByCity: [
+        { city: "Ahmedabad", sales: 700000 },
+        { city: "Surat", sales: 400000 },
+        { city: "Vadodara", sales: 250000 },
+        { city: "Rajkot", sales: 150000 },
+      ],
+    }
+  },
+  rajasthan: {
+    "all-categories": {
+      totalRevenue: 2790123,
+      totalRevenueChange: 17.8,
+      conversionRate: 2.5,
+      conversionRateChange: 1.2,
+      activeBuyers: 4000,
+      activeBuyersChange: 145.6,
+      newSellers: 18000,
+      newSellersChange: 20.1,
+      salesOverTime: [
+        { month: "Jan", sales: 4000, revenue: 1500000 },
+        { month: "Feb", sales: 4200, revenue: 1700000 },
+        { month: "Mar", sales: 4500, revenue: 2000000 },
+        { month: "Apr", sales: 4800, revenue: 2200000 },
+        { month: "May", sales: 5000, revenue: 2500000 },
+        { month: "Jun", sales: 5100, revenue: 2790123 },
+      ],
+      salesByCity: [
+        { city: "Jaipur", sales: 1200000 },
+        { city: "Jodhpur", sales: 700000 },
+        { city: "Udaipur", sales: 500000 },
+        { city: "Kota", sales: 390123 },
+      ],
+      salesByCategory: [
+        { category: "Home Goods", sales: 1100000 },
+        { category: "Fashion", sales: 900000 },
+        { category: "Electronics", sales: 790123 },
+      ]
+    },
+    "home-goods": {
+      totalRevenue: 1100000,
+      totalRevenueChange: 16.2,
+      conversionRate: 3.1,
+      conversionRateChange: 1.1,
+      activeBuyers: 1500,
+      activeBuyersChange: 135.4,
+      newSellers: 7000,
+      newSellersChange: 18.9,
+      salesOverTime: [
+        { month: "Jan", sales: 1500, revenue: 500000 },
+        { month: "Feb", sales: 1600, revenue: 600000 },
+        { month: "Mar", sales: 1700, revenue: 700000 },
+        { month: "Apr", sales: 1800, revenue: 800000 },
+        { month: "May", sales: 1900, revenue: 950000 },
+        { month: "Jun", sales: 2000, revenue: 1100000 },
+      ],
+      salesByCity: [
+        { city: "Jaipur", sales: 500000 },
+        { city: "Jodhpur", sales: 300000 },
+        { city: "Udaipur", sales: 200000 },
+        { city: "Kota", sales: 100000 },
+      ],
+    }
+  },
+  "west-bengal": {
+    "all-categories": {
+      totalRevenue: 4100000,
+      totalRevenueChange: 20.1,
+      conversionRate: 3.1,
+      conversionRateChange: 1.7,
+      activeBuyers: 5000,
+      activeBuyersChange: 155.8,
+      newSellers: 25000,
+      newSellersChange: 22.5,
+      salesOverTime: [
+        { month: "Jan", sales: 6500, revenue: 2200000 },
+        { month: "Feb", sales: 6800, revenue: 2500000 },
+        { month: "Mar", sales: 7000, revenue: 2900000 },
+        { month: "Apr", sales: 7200, revenue: 3300000 },
+        { month: "May", sales: 7500, revenue: 3700000 },
+        { month: "Jun", sales: 7800, revenue: 4100000 },
+      ],
+      salesByCity: [
+        { city: "Kolkata", sales: 2000000 },
+        { city: "Howrah", sales: 1000000 },
+        { city: "Durgapur", sales: 600000 },
+        { city: "Asansol", sales: 500000 },
+      ],
+      salesByCategory: [
+        { category: "Electronics", sales: 1800000 },
+        { category: "Fashion", sales: 1300000 },
+        { category: "Home Goods", sales: 1000000 },
+      ]
+    },
+    electronics: {
+      totalRevenue: 1800000,
+      totalRevenueChange: 22.3,
+      conversionRate: 4.8,
+      conversionRateChange: 2.1,
+      activeBuyers: 2200,
+      activeBuyersChange: 165.2,
+      newSellers: 10000,
+      newSellersChange: 26.3,
+      salesOverTime: [
+        { month: "Jan", sales: 2800, revenue: 800000 },
+        { month: "Feb", sales: 3000, revenue: 950000 },
+        { month: "Mar", sales: 3200, revenue: 1100000 },
+        { month: "Apr", sales: 3400, revenue: 1300000 },
+        { month: "May", sales: 3500, revenue: 1500000 },
+        { month: "Jun", sales: 3600, revenue: 1800000 },
+      ],
+      salesByCity: [
+        { city: "Kolkata", sales: 900000 },
+        { city: "Howrah", sales: 450000 },
+        { city: "Durgapur", sales: 250000 },
+        { city: "Asansol", sales: 200000 },
+      ],
+    }
+  },
+  "uttar-pradesh": {
+    "all-categories": {
+      totalRevenue: 5500000,
+      totalRevenueChange: 21.2,
+      conversionRate: 3.3,
+      conversionRateChange: 1.9,
+      activeBuyers: 6500,
+      activeBuyersChange: 162.4,
+      newSellers: 29000,
+      newSellersChange: 24.1,
+      salesOverTime: [
+        { month: "Jan", sales: 8000, revenue: 3000000 },
+        { month: "Feb", sales: 8200, revenue: 3400000 },
+        { month: "Mar", sales: 8500, revenue: 3800000 },
+        { month: "Apr", sales: 8800, revenue: 4200000 },
+        { month: "May", sales: 9000, revenue: 4800000 },
+        { month: "Jun", sales: 9200, revenue: 5500000 },
+      ],
+      salesByCity: [
+        { city: "Lucknow", sales: 2500000 },
+        { city: "Kanpur", sales: 1500000 },
+        { city: "Agra", sales: 800000 },
+        { city: "Varanasi", sales: 700000 },
+      ],
+      salesByCategory: [
+        { category: "Fashion", sales: 2200000 },
+        { category: "Electronics", sales: 1800000 },
+        { category: "Home Goods", sales: 1500000 },
+      ]
+    },
+    fashion: {
+      totalRevenue: 2200000,
+      totalRevenueChange: 23.8,
+      conversionRate: 4.9,
+      conversionRateChange: 2.3,
+      activeBuyers: 2800,
+      activeBuyersChange: 170.6,
+      newSellers: 12000,
+      newSellersChange: 27.2,
+      salesOverTime: [
+        { month: "Jan", sales: 3500, revenue: 1000000 },
+        { month: "Feb", sales: 3700, revenue: 1200000 },
+        { month: "Mar", sales: 3900, revenue: 1400000 },
+        { month: "Apr", sales: 4100, revenue: 1600000 },
+        { month: "May", sales: 4300, revenue: 1900000 },
+        { month: "Jun", sales: 4400, revenue: 2200000 },
+      ],
+      salesByCity: [
+        { city: "Lucknow", sales: 1000000 },
+        { city: "Kanpur", sales: 600000 },
+        { city: "Agra", sales: 350000 },
+        { city: "Varanasi", sales: 250000 },
+      ],
+    }
   }
 };
 
@@ -398,7 +618,10 @@ export default function DashboardPage() {
               <SelectItem value="karnataka">Karnataka</SelectItem>
               <SelectItem value="delhi">Delhi</SelectItem>
               <SelectItem value="tamil-nadu">Tamil Nadu</SelectItem>
-              {/* Add other 16 states here */}
+              <SelectItem value="gujarat">Gujarat</SelectItem>
+              <SelectItem value="rajasthan">Rajasthan</SelectItem>
+              <SelectItem value="west-bengal">West Bengal</SelectItem>
+              <SelectItem value="uttar-pradesh">Uttar Pradesh</SelectItem>
             </SelectContent>
           </Select>
           <Select value={category} onValueChange={setCategory} disabled={state === 'all-india'}>
